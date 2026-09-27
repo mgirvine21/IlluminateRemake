@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3y6uqfcjlngf"]
 
 [ext_resource type="Script" uid="uid://dkjpu7l12xrvi" path="res://scripts/player.gd" id="1_hqtel"]
+[ext_resource type="Script" uid="uid://coybuowdpco7l" path="res://point_light_2d.gd" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://dkajyvm1np3kv" path="res://Assets/player_rest.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://cfuvx7j1dn03n" path="res://Assets/player_jump.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bihlwsg730yvv" path="res://Assets/player_walk.png" id="4_1jxqw"]
@@ -370,6 +371,9 @@ shadow_filter = 2
 shadow_filter_smooth = 4.5
 texture = SubResource("GradientTexture2D_sweqy")
 texture_scale = 1.33
+script = ExtResource("2_2hs0m")
+max_light = null
+min_light = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1848031570]
 light_mask = 2
@@ -380,3 +384,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614359349]
 position = Vector2(6, 19)
 shape = SubResource("CapsuleShape2D_c1fgu")
+
+[node name="Timer" type="Timer" parent="." unique_id=685551379]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="PointLight2D" method="_on_timer_timeout"]
