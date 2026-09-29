@@ -1,4 +1,3 @@
-@tool 
 extends Node
 signal star_collected
 signal lives_changed
@@ -6,6 +5,7 @@ signal game_ended(ending: Endings)
 signal game_started
 signal gravity_changed(gravity: float)
 signal timer_added
+signal light_meter_changed(value: float, max_value: float)
 
 enum Endings { WIN, LOSE}
 enum Player { ONE }
@@ -16,13 +16,31 @@ enum PhysicsLayers {
 	ENEMY = 4,
 }
 
+const MAX_LIGHT_METER := 100.0
+const STAR_REFILL := 20.0
+const DRAIN_PER_SECOND := 5.0
+
 var timer: Timer
 var stars: int = 0
+var light_meter: float = MAX_LIGHT_METER
 var lives: int = 3:
 	set = _set_lives
 
+func _ready():
+	game_ended.connect(_on_game_ended)
+	game_started.connect(_on_game_start)
+
+func _process(delta: float) -> void:
+	if light_meter > 0.0:
+		_set_light_meter(light_meter - DRAIN_PER_SECOND * delta)
+
+func _set_light_meter(value: float) -> void:
+	light_meter = clamp(value, 0.0, MAX_LIGHT_METER)
+	light_meter_changed.emit(light_meter, MAX_LIGHT_METER)
+
 func collect_star():
 	stars += 1
+	_set_light_meter(light_meter + STAR_REFILL)
 	star_collected.emit()
 	print("+1 star")
 
@@ -45,10 +63,6 @@ func _set_lives(value):
 	lives_changed.emit()
 	if lives <= 0:
 		game_ended.emit(Endings.LOSE)
-
-func _ready():
-	game_ended.connect(_on_game_ended)
-	game_started.connect(_on_game_start)
 
 func _on_game_ended(_endings: Endings):
 	if timer and not timer.is_stopped():

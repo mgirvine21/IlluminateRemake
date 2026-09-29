@@ -1,18 +1,21 @@
 extends PointLight2D
 
 @export var max_light: float = 2.0
-@export var min_light: float =  0.1
-@export var light: PointLight2D
+@export var min_light: float =  0.2
+@export_range(0.0, 1.0) var full_threshold: float = 0.75
 
-@onready var light_timer: Timer = $Timer
-
-func update_light_meter(meter_value: float, max_meter_value: float) -> void:
-	var ratio = clamp(meter_value / max_meter_value, 0.0, 1.0)
+func _ready() -> void:
+	Global.light_meter_changed.connect(_on_light_meter_changed)
+	_on_light_meter_changed(Global.light_meter, Global.MAX_LIGHT_METER)
 	
-	light.texture_scale = lerp(min_light , max_light, ratio)
+func _on_light_meter_changed(value: float, max_value: float) -> void:
+	var ratio := clampf(value / max_value, 0.0, 1.0)
+	
+	var t := clampf(ratio / full_threshold, 0.0, 1.0)
+	texture_scale = lerpf(min_light, max_light, t)
 	
 func update() -> void:
-	
+	pass
 	#update_light_meter()
 
 

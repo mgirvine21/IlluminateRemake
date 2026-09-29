@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://wrcqogjoajkx" path="res://hud.gd" id="1_64ctp"]
 [ext_resource type="Texture2D" uid="uid://diggsrm3n6a77" path="res://Assets/player_nest.png" id="2_8sq4i"]
 [ext_resource type="FontFile" uid="uid://csdrjw1s586cc" path="res://Assets/Fonts/RUBBBB__.TTF" id="2_640wx"]
+[ext_resource type="Texture2D" uid="uid://mbee6o5d7kqd" path="res://Assets/meterbasse.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://doekawed4vuwq" path="res://Assets/metertop.png" id="4_rftc2"]
+[ext_resource type="Texture2D" uid="uid://dy2tvomwhbtsl" path="res://Assets/meterfill.png" id="5_61f8s"]
+[ext_resource type="Script" uid="uid://c3ken5e8ib1vl" path="res://texture_progress_bar.gd" id="6_rftc2"]
 
 [node name="HUD" type="CanvasLayer" unique_id=94779443]
 script = ExtResource("1_64ctp")
@@ -117,10 +121,10 @@ text = "You Lose"
 
 [node name="CollectedStars" type="Label" parent="." unique_id=80972815]
 unique_name_in_owner = true
-offset_left = 32.0
-offset_top = 72.0
-offset_right = 203.0
-offset_bottom = 119.0
+offset_left = 218.0
+offset_top = 155.0
+offset_right = 389.0
+offset_bottom = 202.0
 theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
 theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
@@ -130,12 +134,29 @@ theme_override_fonts/font = ExtResource("2_640wx")
 theme_override_font_sizes/font_size = 35
 text = "Stars: 0"
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1891136151]
+anchors_preset = -1
+anchor_left = 0.13900001
+anchor_top = 0.187
+anchor_right = 0.13900001
+anchor_bottom = 0.187
+offset_left = -263.88004
+offset_top = -153.96
+offset_right = 64.119965
+offset_bottom = 186.04
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("3_1xsix")
+texture_over = ExtResource("4_rftc2")
+texture_progress = ExtResource("5_61f8s")
+script = ExtResource("6_rftc2")
+
 [node name="TimeLeft" type="Label" parent="." unique_id=1634601728]
 unique_name_in_owner = true
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 72.0
-offset_bottom = 68.0
+offset_left = 225.0
+offset_top = 221.0
+offset_right = 265.0
+offset_bottom = 257.0
 theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
 theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
