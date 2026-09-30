@@ -638,10 +638,10 @@ collision_mask = 7
 floor_snap_length = 2.0
 
 [node name="Star" parent="." unique_id=1840852587 instance=ExtResource("3_8gbba")]
-position = Vector2(245, 192)
+position = Vector2(-108, 450)
 
 [node name="Star2" parent="." unique_id=144646010 instance=ExtResource("3_8gbba")]
-position = Vector2(-15, 199)
+position = Vector2(-109, 167)
 
 [node name="HUD" parent="." unique_id=94779443 instance=ExtResource("4_jjvhh")]
 
