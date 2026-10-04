@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bpe6h1pfknucf" path="res://Assets/TileSets/tiles rock color.png" id="2_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cu1mca85adjo3" path="res://cave_generator.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://b3y6uqfcjlngf" path="res://player.tscn" id="2_bo1nx"]
+[ext_resource type="TileSet" uid="uid://dwdlgeeuyw0bh" path="res://Assets/TileSets/illumiate.tres" id="2_hptm8"]
 [ext_resource type="PackedScene" uid="uid://gu2832xuxhj2" path="res://star.tscn" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://dq76u6y56cnpl" path="res://Scenes/camera_2d.gd" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dn3vauu0flxla" path="res://hud.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://1anngr85f1xi" path="res://item_data.gd" id="6_6iyac"]
 [ext_resource type="Resource" uid="uid://34mjqea1w2ug" path="res://Assets/ItemResources/star_blue.tres" id="7_344ge"]
+[ext_resource type="Resource" uid="uid://etxmg0ijutdd" path="res://Assets/ItemResources/star_common.tres" id="7_fdnlq"]
 [ext_resource type="Resource" uid="uid://d4khwowbumwwi" path="res://Assets/ItemResources/star_gold.tres" id="7_ynf5e"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
@@ -607,14 +610,14 @@ tile_set = ExtResource("1_21xkr")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=441791537]
 tile_map_data = PackedByteArray("AAAHAP3/AAACAAQAAAA=")
-tile_set = ExtResource("1_21xkr")
+tile_set = ExtResource("2_hptm8")
 
 [node name="Node2D" type="TileMapLayer" parent="." unique_id=551111328]
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAD+/wAAAAABAAEAAAD9/wAAAAABAAEAAAD9////AAABAAEAAAD9//7/AAABAAEAAAD9//3/AAAGAAIAAAD+//3/AAABAAEAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAACAP3/AAABAAEAAAD+//7/AAABAAEAAAAAAP3/AAABAAEAAAABAP3/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAD/////AAABAAEAAAD8////AAABAAEAAAD8/wAAAAAGAAEAAAD9/wEAAAABAAIAAAD8/wEAAAAAAAIAAAD//wEAAAABAAIAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAD+/wEAAAABAAIAAAD8//7/AAABAAEAAAD+////AAABAAEAAAD8//3/AAABAAAAAAD7//7/AAAAAAEAAAD7////AAAAAAEAAAD7/wAAAAAAAAIAAAAAAP//AAABAAEAAAAAAP7/AAABAAEAAAABAP//AAABAAEAAAABAP7/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAAFAAEAAAAIAP//AAABAAIAAAAJAP//AAACAAIAAAADAP7/AAABAAEAAAADAPz/AAABAAAAAAADAP3/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAFAP7/AAABAAEAAAAFAP3/AAAFAAIAAAAGAP7/AAABAAEAAAAIAP7/AAABAAAAAAAHAP7/AAAFAAIAAAAJAP7/AAACAAAAAAAGAP3/AAABAAAAAAAHAP3/AAACAAAAAAAFAPz/AAACAAAAAAAEAPz/AAABAAAAAAD+//z/AAABAAAAAAD7//3/AAAAAAAAAAD9//z/AAAAAAAAAAAFAAAAAAABAAEAAAAEAAAAAAABAAEAAAAGAAAAAAAFAAEAAAAHAAAAAAACAAIAAAAGAAEAAAACAAIAAAAFAAEAAAABAAIAAAAEAAEAAAABAAIAAAADAAEAAAABAAIAAAACAAEAAAABAAIAAAA=")
 tile_set = SubResource("TileSet_21xkr")
 
-[node name="CaveGenerator" parent="Node2D" unique_id=780011225 node_paths=PackedStringArray("cave_layer", "vine_layer") instance=ExtResource("2_21xkr")]
+[node name="CaveGenerator" parent="Node2D" unique_id=780011225 node_paths=PackedStringArray("cave_layer", "vine_layer", "stars_parent", "spawn_maker") instance=ExtResource("2_21xkr")]
 unique_name_in_owner = true
 map_width = 60
 map_height = 60
@@ -622,6 +625,10 @@ noise_persistence = 0.3
 noise_threshold = 0.4
 cave_layer = NodePath("..")
 vine_layer = NodePath("../../TileMapLayer")
+star_scene = ExtResource("3_8gbba")
+star_types = Array[ExtResource("6_6iyac")]([ExtResource("7_fdnlq"), ExtResource("7_344ge"), ExtResource("7_ynf5e")])
+stars_parent = NodePath("../../Stars")
+spawn_maker = NodePath("../../Marker2D")
 
 [node name="Node2D2" type="Node2D" parent="." unique_id=786081756]
 
@@ -638,6 +645,10 @@ player = NodePath("../Player")
 position = Vector2(123, 72)
 collision_mask = 7
 floor_snap_length = 2.0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=18092958]
+
+[node name="Stars" type="Node2D" parent="." unique_id=291876661]
 
 [node name="Star" parent="." unique_id=1840852587 instance=ExtResource("3_8gbba")]
 position = Vector2(-108, 450)
