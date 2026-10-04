@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://dt1ielu8swh6g"
 Actions="*uid://bsstofb18ombe"
+Inventory="*uid://ctftfjwukc3kg"
 
 [display]
 

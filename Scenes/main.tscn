@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://gu2832xuxhj2" path="res://star.tscn" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://dq76u6y56cnpl" path="res://Scenes/camera_2d.gd" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dn3vauu0flxla" path="res://hud.tscn" id="4_jjvhh"]
+[ext_resource type="Resource" uid="uid://34mjqea1w2ug" path="res://Assets/ItemResources/star_blue.tres" id="7_344ge"]
+[ext_resource type="Resource" uid="uid://d4khwowbumwwi" path="res://Assets/ItemResources/star_gold.tres" id="7_ynf5e"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
 polygon = PackedVector2Array(-24.5, -19.5, -16.5, -37.5, 64, -32, 64, 32, 21.5, 64, -32, 64, -40, -14)
@@ -639,9 +641,11 @@ floor_snap_length = 2.0
 
 [node name="Star" parent="." unique_id=1840852587 instance=ExtResource("3_8gbba")]
 position = Vector2(-108, 450)
+data = ExtResource("7_ynf5e")
 
 [node name="Star2" parent="." unique_id=144646010 instance=ExtResource("3_8gbba")]
 position = Vector2(-109, 167)
+data = ExtResource("7_344ge")
 
 [node name="HUD" parent="." unique_id=94779443 instance=ExtResource("4_jjvhh")]
 

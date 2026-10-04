@@ -17,11 +17,9 @@ enum PhysicsLayers {
 }
 
 const MAX_LIGHT_METER := 100.0
-const STAR_REFILL := 20.0
 const DRAIN_PER_SECOND := 5.0
 
 var timer: Timer
-var stars: int = 0
 var light_meter: float = MAX_LIGHT_METER
 var lives: int = 3:
 	set = _set_lives
@@ -38,11 +36,10 @@ func _set_light_meter(value: float) -> void:
 	light_meter = clamp(value, 0.0, MAX_LIGHT_METER)
 	light_meter_changed.emit(light_meter, MAX_LIGHT_METER)
 
-func collect_star():
-	stars += 1
-	_set_light_meter(light_meter + STAR_REFILL)
+func collect_star(data: ItemData) -> void:
+	Inventory.add(data.id, 1)
+	_set_light_meter(light_meter + data.light_refill)
 	star_collected.emit()
-	print("+1 star")
 
 func setup_timer(time_limit: int):
 	timer = Timer.new()

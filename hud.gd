@@ -18,11 +18,11 @@ func _ready() -> void:
 	set_physics_process(false)
 	
 	Global.lives_changed.connect(_on_lives_changed)
+	Inventory.item_changed.connect(_on_item_changed)
 	
 	if Engine.is_editor_hint():
 		return
 	
-	Global.star_collected.connect(_on_star_collected)
 	Global.timer_added.connect(_on_timer_added)
 
 func _unhandled_input(event):
@@ -31,11 +31,11 @@ func _unhandled_input(event):
 		%ColorRect.hide()
 		Global.game_started.emit()
 
-func _on_star_collected():
-	set_collected_stars(Global.stars)
-
-func set_collected_stars(stars: int):
-	%CollectedStars.text = "Stars: " + str(stars)
+func _on_item_changed(_id: StringName, _count: int) -> void:
+	var total := 0
+	for id in Inventory.counts:
+		total += Inventory.counts[id]
+	%CollectedStars.text = "Stars: " + str(total)
 
 func _on_lives_changed():
 	#set_lives(Global.lives)

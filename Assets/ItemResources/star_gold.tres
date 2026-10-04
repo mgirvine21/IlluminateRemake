@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d4khwowbumwwi"]
 
 [ext_resource type="Script" uid="uid://1anngr85f1xi" path="res://item_data.gd" id="1_0gc4w"]
+[ext_resource type="Texture2D" uid="uid://dxn5ukf3km412" path="res://Assets/star.png" id="1_pe7th"]
 
 [resource]
 script = ExtResource("1_0gc4w")
 color = Color(16.19825, 13.908427, 0, 1)
+icon = ExtResource("1_pe7th")
 light_refill = 80.0
 min_distance = 30
 metadata/_custom_type_script = "uid://1anngr85f1xi"

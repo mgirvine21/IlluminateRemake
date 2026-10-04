@@ -1,22 +1,8 @@
 [gd_scene format=3 uid="uid://gu2832xuxhj2"]
 
 [ext_resource type="Script" uid="uid://8yk6qjxgq2db" path="res://star.gd" id="1_e2x7v"]
+[ext_resource type="Resource" uid="uid://etxmg0ijutdd" path="res://Assets/ItemResources/star_common.tres" id="2_c2gop"]
 [ext_resource type="Texture2D" uid="uid://dxn5ukf3km412" path="res://Assets/star.png" id="2_e2x7v"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2gop"]
-atlas = ExtResource("2_e2x7v")
-region = Rect2(0, 0, 256, 340)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_frsb1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c2gop")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w0tmw"]
 radius = 16.0
@@ -24,13 +10,14 @@ radius = 16.0
 [node name="Star" type="Area2D" unique_id=1840852587]
 collision_layer = 2
 script = ExtResource("1_e2x7v")
+data = ExtResource("2_c2gop")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1082880643]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=461914432]
 modulate = Color(1.7581433, 1.7581433, 1.7581433, 1)
 position = Vector2(-3.8146973e-06, -94)
+rotation = 0.7853982
 scale = Vector2(0.41406247, 0.41406247)
-sprite_frames = SubResource("SpriteFrames_frsb1")
-autoplay = "default"
+texture = ExtResource("2_e2x7v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1759705512]
 position = Vector2(-0.043701172, -91.0437)
