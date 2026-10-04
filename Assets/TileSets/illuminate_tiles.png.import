@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc1u7qjo3k5ku"
-path="res://.godot/imported/generativetilemapLATESTFORREALL-export.png-582554bd69c99ed5bf4df2c0b51be9b1.ctex"
+uid="uid://4wk7nseror00"
+path="res://.godot/imported/illuminate_tiles.png-74941a4f6f5a4c0d47b4b0b427fdddc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/generativetilemapLATESTFORREALL-export.png"
-dest_files=["res://.godot/imported/generativetilemapLATESTFORREALL-export.png-582554bd69c99ed5bf4df2c0b51be9b1.ctex"]
+source_file="res://Assets/TileSets/illuminate_tiles.png"
+dest_files=["res://.godot/imported/illuminate_tiles.png-74941a4f6f5a4c0d47b4b0b427fdddc6.ctex"]
 
 [params]
 

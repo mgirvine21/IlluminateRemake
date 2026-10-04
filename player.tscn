@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dkjpu7l12xrvi" path="res://scripts/player.gd" id="1_hqtel"]
 [ext_resource type="Script" uid="uid://coybuowdpco7l" path="res://point_light_2d.gd" id="2_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://dkajyvm1np3kv" path="res://Assets/player_rest.png" id="2_sweqy"]
-[ext_resource type="Texture2D" uid="uid://cfuvx7j1dn03n" path="res://Assets/player_jump.png" id="3_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://bihlwsg730yvv" path="res://Assets/player_walk.png" id="4_1jxqw"]
-[ext_resource type="Texture2D" uid="uid://diggsrm3n6a77" path="res://Assets/player_nest.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://dkajyvm1np3kv" path="res://Assets/Characters/player_rest.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cfuvx7j1dn03n" path="res://Assets/Characters/player_jump.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://bihlwsg730yvv" path="res://Assets/Characters/player_walk.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://diggsrm3n6a77" path="res://Assets/Characters/player_nest.png" id="4_sweqy"]
 
 [sub_resource type="Gradient" id="Gradient_21xkr"]
-offsets = PackedFloat32Array(0, 0.7169811)
+offsets = PackedFloat32Array(0, 0.47750866)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sweqy"]
@@ -372,8 +372,6 @@ shadow_filter_smooth = 4.5
 texture = SubResource("GradientTexture2D_sweqy")
 texture_scale = 1.33
 script = ExtResource("2_2hs0m")
-max_light = null
-min_light = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1848031570]
 light_mask = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpe6h1pfknucf"
-path="res://.godot/imported/tiles rock color.png-02c4292deb0e211a1b5c48ce4bc87593.ctex"
+uid="uid://bihlwsg730yvv"
+path="res://.godot/imported/player_walk.png-893b336af6769ef3ef574cb9fce3b62b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tiles rock color.png"
-dest_files=["res://.godot/imported/tiles rock color.png-02c4292deb0e211a1b5c48ce4bc87593.ctex"]
+source_file="res://Assets/Characters/player_walk.png"
+dest_files=["res://.godot/imported/player_walk.png-893b336af6769ef3ef574cb9fce3b62b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8akih017t2wc"
-path="res://.godot/imported/NEWtilemapcolored.png-8388b7f80263e31b5f84f6e2f91f90a0.ctex"
+uid="uid://dc2xl3m8ejykr"
+path="res://.godot/imported/finaktilemapcolored.png-48315a15aaa5823cbf21a5f8b3711bb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NEWtilemapcolored.png"
-dest_files=["res://.godot/imported/NEWtilemapcolored.png-8388b7f80263e31b5f84f6e2f91f90a0.ctex"]
+source_file="res://Assets/TileSets/finaktilemapcolored.png"
+dest_files=["res://.godot/imported/finaktilemapcolored.png-48315a15aaa5823cbf21a5f8b3711bb1.ctex"]
 
 [params]
 

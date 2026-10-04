@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc2xl3m8ejykr"
-path="res://.godot/imported/finaktilemapcolored.png-08cd76d86d0e86da0accee871cef2920.ctex"
+uid="uid://cfuvx7j1dn03n"
+path="res://.godot/imported/player_jump.png-2c011c849b696e4dbf89e9489deb52cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/finaktilemapcolored.png"
-dest_files=["res://.godot/imported/finaktilemapcolored.png-08cd76d86d0e86da0accee871cef2920.ctex"]
+source_file="res://Assets/Characters/player_jump.png"
+dest_files=["res://.godot/imported/player_jump.png-2c011c849b696e4dbf89e9489deb52cb.ctex"]
 
 [params]
 

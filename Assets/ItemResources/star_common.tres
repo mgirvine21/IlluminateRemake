@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://etxmg0ijutdd"]
+
+[ext_resource type="Texture2D" uid="uid://dxn5ukf3km412" path="res://Assets/star.png" id="1_1t3pw"]
+[ext_resource type="Script" uid="uid://1anngr85f1xi" path="res://item_data.gd" id="1_1ycvu"]
+
+[resource]
+script = ExtResource("1_1ycvu")
+color = Color(18.892157, 18.892157, 18.892157, 1)
+icon = ExtResource("1_1t3pw")
+spawn_weight = 60
+metadata/_custom_type_script = "uid://1anngr85f1xi"

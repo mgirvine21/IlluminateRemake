@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddnawyxr48rlx"
-path="res://.godot/imported/duck_dance.png-61f23dbac128e1ce72eb776c9087d48b.ctex"
+path="res://.godot/imported/duck_dance.png-54c15d456804292572333286c378a71d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/duck_dance.png"
-dest_files=["res://.godot/imported/duck_dance.png-61f23dbac128e1ce72eb776c9087d48b.ctex"]
+source_file="res://Assets/Characters/duck_dance.png"
+dest_files=["res://.godot/imported/duck_dance.png-54c15d456804292572333286c378a71d.ctex"]
 
 [params]
 

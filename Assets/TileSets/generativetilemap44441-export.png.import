@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diggsrm3n6a77"
-path="res://.godot/imported/player_nest.png-cd316c4bc916862bc8d61a531e601ed3.ctex"
+uid="uid://div15lw8c5xmq"
+path="res://.godot/imported/generativetilemap44441-export.png-91756c44f3974a83ca1d19d40667c0c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/player_nest.png"
-dest_files=["res://.godot/imported/player_nest.png-cd316c4bc916862bc8d61a531e601ed3.ctex"]
+source_file="res://Assets/TileSets/generativetilemap44441-export.png"
+dest_files=["res://.godot/imported/generativetilemap44441-export.png-91756c44f3974a83ca1d19d40667c0c5.ctex"]
 
 [params]
 

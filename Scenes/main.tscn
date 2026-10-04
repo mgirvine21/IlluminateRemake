@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b18rk2fjtho0n"]
 
 [ext_resource type="TileSet" uid="uid://bmjwi0pdutttt" path="res://Assets/TileSets/illumiateLatest.tres" id="1_21xkr"]
-[ext_resource type="Texture2D" uid="uid://bpe6h1pfknucf" path="res://Assets/tiles rock color.png" id="2_6bp64"]
+[ext_resource type="Texture2D" uid="uid://bpe6h1pfknucf" path="res://Assets/TileSets/tiles rock color.png" id="2_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cu1mca85adjo3" path="res://cave_generator.tscn" id="2_21xkr"]
 [ext_resource type="PackedScene" uid="uid://b3y6uqfcjlngf" path="res://player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://gu2832xuxhj2" path="res://star.tscn" id="3_8gbba"]

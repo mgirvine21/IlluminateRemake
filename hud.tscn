@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dn3vauu0flxla"]
 
 [ext_resource type="Script" uid="uid://wrcqogjoajkx" path="res://hud.gd" id="1_64ctp"]
-[ext_resource type="Texture2D" uid="uid://diggsrm3n6a77" path="res://Assets/player_nest.png" id="2_8sq4i"]
-[ext_resource type="FontFile" uid="uid://csdrjw1s586cc" path="res://Assets/Fonts/RUBBBB__.TTF" id="2_640wx"]
+[ext_resource type="Texture2D" uid="uid://diggsrm3n6a77" path="res://Assets/Characters/player_nest.png" id="2_8sq4i"]
+[ext_resource type="FontFile" uid="uid://2s1er4uy7iye" path="res://Assets/Fonts/Pixelta.ttf" id="2_rftc2"]
 [ext_resource type="Texture2D" uid="uid://mbee6o5d7kqd" path="res://Assets/meterbasse.png" id="3_1xsix"]
 [ext_resource type="Texture2D" uid="uid://doekawed4vuwq" path="res://Assets/metertop.png" id="4_rftc2"]
 [ext_resource type="Texture2D" uid="uid://dy2tvomwhbtsl" path="res://Assets/meterfill.png" id="5_61f8s"]
@@ -18,7 +18,7 @@ offset_left = -4.0
 offset_top = -11.0
 offset_right = 1928.0
 offset_bottom = 1087.0
-color = Color(0.5803922, 0.77254903, 0.58431375, 0.28235295)
+color = Color(0.2, 0.2, 0.2, 0.7607843)
 
 [node name="Start" type="VBoxContainer" parent="." unique_id=1218983774]
 unique_name_in_owner = true
@@ -36,44 +36,54 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Start" unique_id=635219740]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
-theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("2_640wx")
-theme_override_font_sizes/font_size = 40
-text = "Instructions"
+theme_override_fonts/font = ExtResource("2_rftc2")
+theme_override_font_sizes/font_size = 90
+text = "Instructions:"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="Label2" type="Label" parent="Start" unique_id=1578869487]
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
-theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 7
-theme_override_fonts/font = ExtResource("2_640wx")
-theme_override_font_sizes/font_size = 35
-text = "You are a sleepy dragon, collect the stars for your nightlight and go rest."
+theme_override_fonts/font = ExtResource("2_rftc2")
+theme_override_font_sizes/font_size = 45
+text = "You are a sleepy dragon.
+collect the stars for your nightlight & and go rest."
 horizontal_alignment = 1
 vertical_alignment = 3
 autowrap_mode = 2
+uppercase = true
 
 [node name="Label3" type="Label" parent="Start" unique_id=1414364018]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.86653703, 0.85544086, 0.43218073, 1)
-theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
-theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_colors/font_color = Color(0.8257434, 0.8412247, 0.75174975, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 7
-theme_override_fonts/font = ExtResource("2_640wx")
-theme_override_font_sizes/font_size = 30
-text = "Press any key to start"
+theme_override_fonts/font = ExtResource("2_rftc2")
+theme_override_font_sizes/font_size = 40
+text = "> Press any key to start <"
 horizontal_alignment = 1
 vertical_alignment = 2
+uppercase = true
 
 [node name="WinEnding" type="Label" parent="." unique_id=131215807]
 unique_name_in_owner = true
@@ -89,13 +99,16 @@ offset_right = 32.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
-theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("2_640wx")
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("2_rftc2")
+theme_override_font_sizes/font_size = 40
 text = "You Win"
+uppercase = true
 
 [node name="LoseEnding" type="Label" parent="." unique_id=1856973604]
 unique_name_in_owner = true
@@ -111,13 +124,16 @@ offset_right = 35.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
-theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("2_640wx")
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("2_rftc2")
+theme_override_font_sizes/font_size = 40
 text = "You Lose"
+uppercase = true
 
 [node name="CollectedStars" type="Label" parent="." unique_id=80972815]
 unique_name_in_owner = true
@@ -125,14 +141,17 @@ offset_left = 218.0
 offset_top = 155.0
 offset_right = 389.0
 offset_bottom = 202.0
-theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
-theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 7
-theme_override_fonts/font = ExtResource("2_640wx")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("2_rftc2")
+theme_override_font_sizes/font_size = 40
 text = "Stars: 0"
+uppercase = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1891136151]
 anchors_preset = -1
@@ -157,14 +176,17 @@ offset_left = 225.0
 offset_top = 221.0
 offset_right = 265.0
 offset_bottom = 257.0
-theme_override_colors/font_color = Color(0.6313726, 0.9098039, 0.6862745, 1)
-theme_override_colors/font_shadow_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 7
-theme_override_fonts/font = ExtResource("2_640wx")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("2_rftc2")
+theme_override_font_sizes/font_size = 40
 text = "0"
+uppercase = true
 
 [node name="Lives" type="TextureRect" parent="." unique_id=241109656]
 visible = false

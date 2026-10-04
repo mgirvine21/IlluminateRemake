@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d4khwowbumwwi"]
+
+[ext_resource type="Script" uid="uid://1anngr85f1xi" path="res://item_data.gd" id="1_0gc4w"]
+
+[resource]
+script = ExtResource("1_0gc4w")
+color = Color(16.19825, 13.908427, 0, 1)
+light_refill = 80.0
+min_distance = 30
+metadata/_custom_type_script = "uid://1anngr85f1xi"

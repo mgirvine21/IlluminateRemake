@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4wk7nseror00"
-path="res://.godot/imported/illuminate_tiles.png-51c8f40fdac531860730eb86b132d673.ctex"
+uid="uid://dp35f5r050ls"
+path="res://.godot/imported/rocks.png-49d7cd6cd298580ded6bf82cc69071f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/illuminate_tiles.png"
-dest_files=["res://.godot/imported/illuminate_tiles.png-51c8f40fdac531860730eb86b132d673.ctex"]
+source_file="res://Assets/TileSets/rocks.png"
+dest_files=["res://.godot/imported/rocks.png-49d7cd6cd298580ded6bf82cc69071f8.ctex"]
 
 [params]
 
