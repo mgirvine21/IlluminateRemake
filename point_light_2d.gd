@@ -6,7 +6,7 @@ extends PointLight2D
 
 func _ready() -> void:
 	Global.light_meter_changed.connect(_on_light_meter_changed)
-	_on_light_meter_changed(Global.light_meter, Global.MAX_LIGHT_METER)
+	_on_light_meter_changed(Global.light_meter, Global.max_light_meter)
 	
 func _on_light_meter_changed(value: float, max_value: float) -> void:
 	var ratio := clampf(value / max_value, 0.0, 1.0)

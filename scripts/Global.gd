@@ -20,6 +20,7 @@ const MAX_LIGHT_METER := 100.0
 const DRAIN_PER_SECOND := 5.0
 
 var timer: Timer
+var max_light_meter: float = MAX_LIGHT_METER
 var light_meter: float = MAX_LIGHT_METER
 var lives: int = 3:
 	set = _set_lives
@@ -28,16 +29,29 @@ func _ready():
 	game_ended.connect(_on_game_ended)
 	game_started.connect(_on_game_start)
 
+## Light only drains while exploring a cave, and pauses while a menu is open.
 func _process(delta: float) -> void:
+	if not GameState.in_cave or not GameState.session_started or GameState.ui_blocking:
+		return
 	if light_meter > 0.0:
-		_set_light_meter(light_meter - DRAIN_PER_SECOND * delta)
+		_set_light_meter(light_meter - GameState.drain_rate() * delta)
+		if light_meter <= 0.0:
+			GameState.burnout()
 
 func _set_light_meter(value: float) -> void:
-	light_meter = clamp(value, 0.0, MAX_LIGHT_METER)
-	light_meter_changed.emit(light_meter, MAX_LIGHT_METER)
+	light_meter = clamp(value, 0.0, max_light_meter)
+	light_meter_changed.emit(light_meter, max_light_meter)
+
+func refresh_light_cap() -> void:
+	max_light_meter = GameState.max_light()
+	_set_light_meter(light_meter)
+
+func refill_light() -> void:
+	refresh_light_cap()
+	_set_light_meter(max_light_meter)
 
 func collect_star(data: ItemData) -> void:
-	Inventory.add(data.id, 1)
+	GameState.on_star_collected(str(data.id))
 	_set_light_meter(light_meter + data.light_refill)
 	star_collected.emit()
 

@@ -3,7 +3,7 @@ extends TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	max_value = Global.MAX_LIGHT_METER
+	max_value = Global.max_light_meter
 	value = Global.light_meter
 	Global.light_meter_changed.connect(_on_light_meter_changed)
 
