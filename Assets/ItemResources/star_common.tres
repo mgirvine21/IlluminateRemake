@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_1ycvu")
+id = &"star_common"
+display_name = "Common Star"
 color = Color(18.892157, 18.892157, 18.892157, 1)
 icon = ExtResource("1_1t3pw")
 spawn_weight = 60
