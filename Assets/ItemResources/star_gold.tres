@@ -5,6 +5,8 @@
 
 [resource]
 script = ExtResource("1_0gc4w")
+id = &"star_gold"
+display_name = "Gold Star"
 color = Color(16.19825, 13.908427, 0, 1)
 icon = ExtResource("1_pe7th")
 light_refill = 80.0
