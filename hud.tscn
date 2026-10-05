@@ -14,10 +14,10 @@ script = ExtResource("1_64ctp")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=668583294]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 800)
-offset_left = -4.0
-offset_top = -11.0
-offset_right = 1928.0
-offset_bottom = 1087.0
+offset_left = -484.0
+offset_top = -503.0
+offset_right = 2450.0
+offset_bottom = 1420.0
 color = Color(0.2, 0.2, 0.2, 0.7607843)
 
 [node name="Start" type="VBoxContainer" parent="." unique_id=1218983774]

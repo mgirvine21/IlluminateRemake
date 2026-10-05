@@ -363,8 +363,8 @@ collision_mask = 5
 script = ExtResource("1_hqtel")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2081800161]
-position = Vector2(5.9999995, 0)
-scale = Vector2(7.8437505, 7.3997645)
+position = Vector2(-3.5326543, -84.37042)
+scale = Vector2(14.461168, 13.6426115)
 color = Color(6.389535, 4.043846, 1.9913685, 1)
 shadow_enabled = true
 shadow_filter = 2
@@ -375,12 +375,15 @@ script = ExtResource("2_2hs0m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1848031570]
 light_mask = 2
+position = Vector2(-9.532653, -84.370415)
+scale = Vector2(1.8436549, 1.8436549)
 sprite_frames = SubResource("SpriteFrames_y15wc")
 animation = &"jump"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614359349]
-position = Vector2(6, 19)
+position = Vector2(-2, -53)
+scale = Vector2(1.652415, 1.652415)
 shape = SubResource("CapsuleShape2D_c1fgu")
 
 [node name="Timer" type="Timer" parent="." unique_id=685551379]

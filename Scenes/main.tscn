@@ -618,21 +618,21 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAD+/wAAAAABAAEAAAD9/wAAAAABAAEAAAD9////AAABAAEAAAD9//7/AAABAAEAAAD9//3/AAAGAAIAAAD+//3/AAABAAEAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAACAP3/AAABAAEAAAD+//7/AAABAAEAAAAAAP3/AAABAAEAAAABAP3/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAD/////AAABAAEAAAD8////AAABAAEAAAD8/wAAAAAGAAEAAAD9/wEAAAABAAIAAAD8/wEAAAAAAAIAAAD//wEAAAABAAIAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAD+/wEAAAABAAIAAAD8//7/AAABAAEAAAD+////AAABAAEAAAD8//3/AAABAAAAAAD7//7/AAAAAAEAAAD7////AAAAAAEAAAD7/wAAAAAAAAIAAAAAAP//AAABAAEAAAAAAP7/AAABAAEAAAABAP//AAABAAEAAAABAP7/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAAFAAEAAAAIAP//AAABAAIAAAAJAP//AAACAAIAAAADAP7/AAABAAEAAAADAPz/AAABAAAAAAADAP3/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAFAP7/AAABAAEAAAAFAP3/AAAFAAIAAAAGAP7/AAABAAEAAAAIAP7/AAABAAAAAAAHAP7/AAAFAAIAAAAJAP7/AAACAAAAAAAGAP3/AAABAAAAAAAHAP3/AAACAAAAAAAFAPz/AAACAAAAAAAEAPz/AAABAAAAAAD+//z/AAABAAAAAAD7//3/AAAAAAAAAAD9//z/AAAAAAAAAAAFAAAAAAABAAEAAAAEAAAAAAABAAEAAAAGAAAAAAAFAAEAAAAHAAAAAAACAAIAAAAGAAEAAAACAAIAAAAFAAEAAAABAAIAAAAEAAEAAAABAAIAAAADAAEAAAABAAIAAAACAAEAAAABAAIAAAA=")
 tile_set = SubResource("TileSet_21xkr")
 
-[node name="CaveGenerator" parent="Node2D" unique_id=780011225 node_paths=PackedStringArray("cave_layer", "vine_layer", "stars_parent", "spawn_maker", "player") instance=ExtResource("2_21xkr")]
+[node name="CaveGenerator" parent="Node2D" unique_id=780011225 node_paths=PackedStringArray("spawn_maker", "player", "cave_layer", "vine_layer", "stars_parent") instance=ExtResource("2_21xkr")]
 unique_name_in_owner = true
+spawn_maker = NodePath("../../Marker2D")
 player = NodePath("../../Player")
 cave_layer = NodePath("..")
 vine_layer = NodePath("../../TileMapLayer")
 star_scene = ExtResource("3_8gbba")
 star_types = Array[ExtResource("6_6iyac")]([ExtResource("7_fdnlq"), ExtResource("7_344ge"), ExtResource("7_ynf5e")])
 stars_parent = NodePath("../../Stars")
-spawn_maker = NodePath("../../Marker2D")
 
 [node name="Node2D2" type="Node2D" parent="." unique_id=786081756]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1180090236 node_paths=PackedStringArray("player")]
 position = Vector2(-69, -77)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.25, 1.25)
 process_callback = 0
 limit_enabled = false
 position_smoothing_speed = 15.0
@@ -640,7 +640,7 @@ script = ExtResource("3_kry3j")
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1352380324 instance=ExtResource("2_bo1nx")]
-position = Vector2(123, 72)
+position = Vector2(116, 145)
 collision_mask = 7
 floor_snap_length = 2.0
 
@@ -657,6 +657,7 @@ position = Vector2(-109, 167)
 data = ExtResource("7_344ge")
 
 [node name="HUD" parent="." unique_id=94779443 instance=ExtResource("4_jjvhh")]
+visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=75361510]
 visible = false
