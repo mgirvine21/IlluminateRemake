@@ -5,6 +5,7 @@ extends CharacterBody2D
 const GLIDE_TERMINAL_VELOCITY = 100
 
 @export var player: Global.Player = Global.Player.ONE
+@export var _map_marker: Sprite2D
 @export var sprite_frames: SpriteFrames = _initial_sprite_frames:
 	set = _set_sprite_frames
 @export_range(0, 1000, 10, "suffix:px/s") var speed: float = 500.0:
@@ -53,6 +54,7 @@ func _ready():
 	original_position = position
 	_set_speed(speed)
 	_set_sprite_frames(sprite_frames)
+	_add_player_to_map()
 
 func _on_gravity_changed(new_gravity):
 	gravity = new_gravity
@@ -89,6 +91,23 @@ func _interact() -> void:
 func place_stars() -> void:
 	pass
 	#PLACE NIGHTLIGHTS FOR DRAGON
+
+func _add_player_to_map() -> void:
+	if Engine.is_editor_hint():
+		return
+	_map_marker = Sprite2D.new()
+	_map_marker.texture = preload("res://Assets/dragon.png")
+	_map_marker.scale = Vector2(0.05, 0.05)
+	%MiniMap.add_child(_map_marker)
+
+
+func _update_map_marker() -> void:
+	if _map_marker == null:
+		return
+	var cave: TileMapLayer = %Cave
+	var cell: Vector2i = cave.local_to_map(cave.to_local(global_position))
+	# Cells are centered on the origin (-45..44, -30..29), the image starts at 0,0.
+	_map_marker.position = Vector2(cell.x + 45, cell.y + 30)
 
 func _physics_process(delta):
 	if Global.lives <= 0:
@@ -144,6 +163,7 @@ func _physics_process(delta):
 			" position=", global_position.x)
 
 	jump_buffer_timer -= delta 
+	_update_map_marker()
 
 func reset():
 	position = original_position
