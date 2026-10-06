@@ -101,6 +101,8 @@ var vine_length_weights := {1: 40, 3: 30, 5: 15, 7: 10, 9: 5}
 var tile_map: TileMapLayer
 var simplex_noise := FastNoiseLite.new()
 var rng := RandomNumberGenerator.new()
+var star_rng := RandomNumberGenerator.new()
+var night: int = 1
 
 var spawn_cell: Vector2i
 ## Every open cell the player can reach, mapped to its BFS distance from spawn.
@@ -488,6 +490,7 @@ func break_wall(world_position: Vector2) -> bool:
 # ---------------------------------------------------------------- stars
 
 func spawn_stars() -> void:
+	star_rng.seed = (world_seed + str(night)).hash()
 	for child in stars_parent.get_children():
 		child.queue_free()
 
@@ -497,7 +500,7 @@ func spawn_stars() -> void:
 			continue
 		if _is_star_spot(cell):
 			candidates.append(cell)
-	_seeded_shuffle(candidates)
+	_seeded_shuffle(candidates, star_rng)
 
 	var placed: Array[Vector2i] = []
 	for cell in candidates:
@@ -518,7 +521,7 @@ func spawn_stars() -> void:
 			for cell in pocket:
 				if _is_star_spot(cell):
 					spots.append(cell)
-			_seeded_shuffle(spots)
+			_seeded_shuffle(spots, star_rng)
 			for i in mini(geode_star_count, spots.size()):
 				_spawn_star(spots[i], rarest)
 
@@ -536,10 +539,10 @@ func _too_close(cell: Vector2i, placed: Array[Vector2i]) -> bool:
 	return false
 
 
-func _seeded_shuffle(arr: Array) -> void:
+func _seeded_shuffle(arr: Array, range: RandomNumberGenerator) -> void:
 	# Array.shuffle() uses the global RNG and would break same-cave-per-seed.
 	for i in range(arr.size() - 1, 0, -1):
-		var j := rng.randi_range(0, i)
+		var j := range.randi_range(0, i)
 		var tmp = arr[i]
 		arr[i] = arr[j]
 		arr[j] = tmp
@@ -552,7 +555,7 @@ func _pick_star_type(distance: int) -> ItemData:
 			total += t.spawn_weight
 	if total <= 0:
 		return null
-	var roll := rng.randi_range(1, total)
+	var roll := star_rng.randi_range(1, total)
 	for t in star_types:
 		if distance >= t.min_distance:
 			roll -= t.spawn_weight

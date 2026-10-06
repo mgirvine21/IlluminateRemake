@@ -113,7 +113,7 @@ polygon = PackedVector2Array(-32, -64, 32, -64, 32, -32, 64, -32, 64, 32, 32, 32
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o1aky"]
 polygon = PackedVector2Array(-32, -64, 32, -64, 32, -32, 64, -32, 64, 32, 32, 32, 32, 64, -32, 64, -32, 32, -64, 32, -64, -32, -32, -32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kry3j"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdnlq"]
 texture = ExtResource("2_6bp64")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
@@ -602,7 +602,7 @@ physics_layer_0/collision_layer = 4
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.6965618, 0.00283004, 0.4028937, 1)
-sources/0 = SubResource("TileSetAtlasSource_kry3j")
+sources/0 = SubResource("TileSetAtlasSource_fdnlq")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e62tp"]
 
