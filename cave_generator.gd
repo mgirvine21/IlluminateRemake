@@ -31,9 +31,6 @@ const OPEN := 0
 @export var map_width: int = 90
 @export var map_height: int = 60
 @export var border_thickness: int = 2
-@export var world_seed: String = "Hello Godot!"
-## When true a new cave is rolled every run instead of using world_seed.
-@export var randomize_seed: bool = false
 @export var redraw: bool = false:
 	set(value):
 		_do_redraw()
@@ -102,7 +99,7 @@ var tile_map: TileMapLayer
 var simplex_noise := FastNoiseLite.new()
 var rng := RandomNumberGenerator.new()
 var star_rng := RandomNumberGenerator.new()
-var night: int = 1
+var layout_seed: int = 0
 
 var spawn_cell: Vector2i
 ## Every open cell the player can reach, mapped to its BFS distance from spawn.
@@ -124,11 +121,10 @@ func _do_redraw() -> void:
 		return
 	generate()
 
-
-func generate() -> void:
-	var seed_value: int = randi() if randomize_seed else world_seed.hash()
-	rng.seed = seed_value
-	_setup_noise(seed_value)
+func generate_layout() -> void: 
+	layout_seed = WorldState.world_seed.hash()
+	rng.seed = layout_seed
+	_setup_noise(layout_seed)
 
 	_min = Vector2i(-map_width / 2, -map_height / 2)
 	_grid = PackedByteArray()
@@ -147,14 +143,24 @@ func generate() -> void:
 		_add_climb_ledges()
 	_carve_spawn_room()
 	_resolve_pockets()
-
+	_apply_broken_walls()
 	_paint_tiles()
 	main_region = find_reachable(spawn_cell)
 	_collect_geodes()
 	print("cave: reachable cells=", main_region.size(), " geodes=", geode_pockets.size())
 
 	generate_vines()
+
+func _apply_broken_walls() -> void:
+	for c in WorldState.broken_walls:
+		_set_wall(c, false)
+
+func populate_stars() -> void:
 	spawn_stars()
+
+func generate() -> void:
+	generate_layout()
+	populate_stars()
 	_place_player()
 	cave_generated.emit(cell_to_world(spawn_cell))
 
@@ -483,6 +489,8 @@ func break_wall(world_position: Vector2) -> bool:
 		vine_layer.erase_cell(c)
 	main_region = find_reachable(spawn_cell)
 	_collect_geodes()
+	if not WorldState.broken_walls.has(c):
+		WorldState.broken_walls.append(c)
 	wall_broken.emit(c)
 	return true
 
@@ -490,7 +498,9 @@ func break_wall(world_position: Vector2) -> bool:
 # ---------------------------------------------------------------- stars
 
 func spawn_stars() -> void:
-	star_rng.seed = (world_seed + str(night)).hash()
+	star_rng.seed = hash("%d_%d" % [layout_seed, WorldState.night])
+	if stars_parent == null or star_scene == null:
+		return
 	for child in stars_parent.get_children():
 		child.queue_free()
 
@@ -529,6 +539,8 @@ func spawn_stars() -> void:
 
 
 func _is_star_spot(cell: Vector2i) -> bool:
+	if is_wall(cell) or not is_wall(cell + Vector2i.DOWN):
+		return false
 	return not is_wall(cell) and is_wall(cell + Vector2i.DOWN) and vine_layer.get_cell_source_id(cell) == -1
 
 
@@ -539,10 +551,9 @@ func _too_close(cell: Vector2i, placed: Array[Vector2i]) -> bool:
 	return false
 
 
-func _seeded_shuffle(arr: Array, range: RandomNumberGenerator) -> void:
-	# Array.shuffle() uses the global RNG and would break same-cave-per-seed.
+func _seeded_shuffle(arr: Array, rng: RandomNumberGenerator) -> void:
 	for i in range(arr.size() - 1, 0, -1):
-		var j := range.randi_range(0, i)
+		var j := rng.randi_range(0, i)
 		var tmp = arr[i]
 		arr[i] = arr[j]
 		arr[j] = tmp
@@ -582,6 +593,8 @@ func _spawn_star(cell: Vector2i, data: ItemData) -> void:
 # ---------------------------------------------------------------- vines
 
 func generate_vines() -> void:
+	if vine_layer == null:
+		return
 	vine_layer.clear()
 	var placed: Array[Vector2i] = []
 	for y in map_height:

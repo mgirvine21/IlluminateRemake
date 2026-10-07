@@ -9,6 +9,7 @@ const OFFSET := Vector2i(45, 30)
 var _fog_image: Image
 var _fog_texture: ImageTexture
 var _last_cell := Vector2i(-9999, -9999)
+var _marker := Sprite2D.new()
 
 func _generate_minimap() -> void:
 	var map := Image.create(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGB8)
@@ -27,8 +28,19 @@ func _generate_minimap() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_marker.texture = preload("res://Assets/dragon.png")
+	_marker.scale = Vector2(0.05, 0.05)
+	%MiniMap.add_child(_marker)
 	%CaveGenerator.cave_generated.connect(func(_spawn): _generate_minimap())
+	SaveGame.about_to_save.connect(_store_fog)
 	_generate_minimap()
+
+func _store_fog() -> void:
+	if _fog_image:
+		WorldState.fog_bytes = _fog_image.get_data()
+
+func _exit_tree() -> void:
+	_store_fog()
 
 func reveal_around(cell: Vector2i) -> void:
 	if cell == _last_cell:
@@ -56,4 +68,5 @@ func _physics_process(_delta: float) -> void:
 		return
 	var cave: TileMapLayer = %Cave
 	var cell: Vector2i = cave.local_to_map(cave.to_local(player.global_position))
+	_marker.position = Vector2(cell + OFFSET) + Vector2(0.5, 0.5)
 	reveal_around(cell)
