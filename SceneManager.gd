@@ -17,6 +17,9 @@ func _ready() -> void:
 func go_to(path: String, duration: float = 0.4) -> void:
 	if _busy:
 		return
+	if not ResourceLoader.exists(path):
+		push_error("SceneManager: no scene at %s" % path)
+		return
 	_busy = true
 	_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	

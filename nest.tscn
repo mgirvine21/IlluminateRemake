@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://cc1cxdtuin0mp"]
 
+[ext_resource type="Script" uid="uid://bov618msnj21" path="res://nest.gd" id="1_ffudn"]
 [ext_resource type="Texture2D" uid="uid://bpe6h1pfknucf" path="res://Assets/TileSets/tiles rock color.png" id="1_u16m5"]
 [ext_resource type="Texture2D" uid="uid://be6fm1o6tnvem" path="res://Assets/dragon.png" id="2_ffudn"]
+[ext_resource type="Script" uid="uid://dq76u6y56cnpl" path="res://Scenes/camera_2d.gd" id="4_2dcr5"]
+[ext_resource type="PackedScene" uid="uid://b3y6uqfcjlngf" path="res://player.tscn" id="5_t2lwp"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
 polygon = PackedVector2Array(-24.5, -19.5, -16.5, -37.5, 64, -32, 64, 32, 21.5, 64, -32, 64, -40, -14)
@@ -594,6 +597,7 @@ terrain_set_0/terrain_0/color = Color(0.6965618, 0.00283004, 0.4028937, 1)
 sources/0 = SubResource("TileSetAtlasSource_t2lwp")
 
 [node name="Node2D" type="Node2D" unique_id=1158223081]
+script = ExtResource("1_ffudn")
 
 [node name="Cave" type="TileMapLayer" parent="." unique_id=20377468]
 unique_name_in_owner = true
@@ -604,3 +608,17 @@ tile_set = SubResource("TileSet_03ioh")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=766512766]
 position = Vector2(661, -6)
 texture = ExtResource("2_ffudn")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=582607935 node_paths=PackedStringArray("player")]
+position = Vector2(-69, -77)
+zoom = Vector2(1.25, 1.25)
+process_callback = 0
+limit_enabled = false
+position_smoothing_speed = 15.0
+script = ExtResource("4_2dcr5")
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=1352380324 instance=ExtResource("5_t2lwp")]
+position = Vector2(116, 145)
+collision_mask = 7
+floor_snap_length = 2.0

@@ -20,14 +20,14 @@ func _generate_minimap() -> void:
 			map.set_pixelv(p, Color.BLACK)
 	%MiniMap.texture = ImageTexture.create_from_image(map)
 	
-	_fog_image = Image.create(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8)
-	_fog_image.fill(Color(0.05, 0.05, 0.08, 1.0))
-	#var expected := MAP_SIZE.x * MAP_SIZE.y * 4
-	#if WorldState.fog_bytes.size() == expected:
-		#_fog_image = Image.create_from_data(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8, WorldState.fog_bytes)
-		#_fog_image.fill(Color(0.05, 0.05, 0.08, 1.0))
-	#else:
-		#_fog_image = Image.create(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8)
+	#_fog_image = Image.create(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8)
+	#_fog_image.fill(Color(0.05, 0.05, 0.08, 1.0))
+	var expected := MAP_SIZE.x * MAP_SIZE.y * 4
+	if WorldState.fog_bytes.size() == expected:
+		_fog_image = Image.create_from_data(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8, WorldState.fog_bytes)
+	else:
+		_fog_image = Image.create(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8)
+		_fog_image.fill(Color(0.05, 0.05, 0.08, 1.0))
 	_fog_texture = ImageTexture.create_from_image(_fog_image)
 	%Fog.texture = _fog_texture
 	_last_cell = Vector2i(-9999, -9999)
@@ -76,3 +76,7 @@ func _physics_process(_delta: float) -> void:
 	var cell: Vector2i = cave.local_to_map(cave.to_local(player.global_position))
 	_marker.position = Vector2(cell + OFFSET) + Vector2(0.5, 0.5)
 	reveal_around(cell)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_N:
+		SceneManager.go_to("res://nest.tscn")  # your real path

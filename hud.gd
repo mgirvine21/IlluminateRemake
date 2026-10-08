@@ -17,13 +17,13 @@ func _ready() -> void:
 	set_process(false)
 	set_physics_process(false)
 	
-	Global.lives_changed.connect(_on_lives_changed)
-	Inventory.item_changed.connect(_on_item_changed)
-	
 	if Engine.is_editor_hint():
 		return
-	
+		
+	Global.lives_changed.connect(_on_lives_changed)
+	Inventory.item_changed.connect(_on_item_changed)
 	Global.timer_added.connect(_on_timer_added)
+	_refresh_stars()
 
 func _unhandled_input(event):
 	if event is InputEventKey and %Start.is_visible_in_tree():
@@ -32,6 +32,14 @@ func _unhandled_input(event):
 		Global.game_started.emit()
 
 func _on_item_changed(_id: StringName, _count: int) -> void:
+	_refresh_stars()
+	
+	var total := 0
+	for id in Inventory.counts:
+		total += Inventory.counts[id]
+	%CollectedStars.text = "Stars: " + str(total)
+
+func _refresh_stars() -> void:
 	var total := 0
 	for id in Inventory.counts:
 		total += Inventory.counts[id]
