@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://be6fm1o6tnvem" path="res://Assets/dragon.png" id="2_ffudn"]
 [ext_resource type="Script" uid="uid://dq76u6y56cnpl" path="res://Scenes/camera_2d.gd" id="4_2dcr5"]
 [ext_resource type="PackedScene" uid="uid://b3y6uqfcjlngf" path="res://player.tscn" id="5_t2lwp"]
+[ext_resource type="PackedScene" uid="uid://b70dne4c4tcml" path="res://door.tscn" id="6_t2lwp"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
 polygon = PackedVector2Array(-24.5, -19.5, -16.5, -37.5, 64, -32, 64, 32, 21.5, 64, -32, 64, -40, -14)
@@ -622,3 +623,7 @@ player = NodePath("../Player")
 position = Vector2(116, 145)
 collision_mask = 7
 floor_snap_length = 2.0
+
+[node name="Door" parent="." unique_id=28166719 instance=ExtResource("6_t2lwp")]
+position = Vector2(340, 157)
+target_scene = "uid://b18rk2fjtho0n"

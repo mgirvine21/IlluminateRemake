@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://34mjqea1w2ug" path="res://Assets/ItemResources/star_blue.tres" id="7_344ge"]
 [ext_resource type="Resource" uid="uid://etxmg0ijutdd" path="res://Assets/ItemResources/star_common.tres" id="7_fdnlq"]
 [ext_resource type="Resource" uid="uid://d4khwowbumwwi" path="res://Assets/ItemResources/star_gold.tres" id="7_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://b70dne4c4tcml" path="res://door.tscn" id="14_jkdf5"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
 polygon = PackedVector2Array(-24.5, -19.5, -16.5, -37.5, 64, -32, 64, 32, 21.5, 64, -32, 64, -40, -14)
@@ -689,3 +690,7 @@ texture = SubResource("PlaceholderTexture2D_fsojs")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=75361510]
 visible = false
 color = Color(0.3224, 0.40143996, 0.52, 1)
+
+[node name="Door" parent="." unique_id=28166719 instance=ExtResource("14_jkdf5")]
+position = Vector2(261, 159)
+target_scene = "uid://cc1cxdtuin0mp"
