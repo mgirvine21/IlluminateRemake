@@ -2,15 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://dy2tvomwhbtsl" path="res://Assets/meterfill.png" id="1_ba8gm"]
 [ext_resource type="Script" uid="uid://dxwxxv0pprgdl" path="res://door.gd" id="1_v6xrn"]
+[ext_resource type="FontFile" uid="uid://2s1er4uy7iye" path="res://Assets/Fonts/Pixelta.ttf" id="3_0phs7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y15wc"]
-size = Vector2(115, 164)
+size = Vector2(190, 164)
 
 [node name="Door" type="Area2D" unique_id=28166719]
+collision_layer = 4
 script = ExtResource("1_v6xrn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2006738674]
-position = Vector2(-0.5, -84)
+position = Vector2(0, -84)
 shape = SubResource("RectangleShape2D_y15wc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592776048]
@@ -18,3 +20,25 @@ light_mask = 4
 position = Vector2(0, -90)
 scale = Vector2(2.2851563, 1)
 texture = ExtResource("1_ba8gm")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=837260173]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -203.0
+offset_right = 51.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_fonts/font = ExtResource("3_0phs7")
+theme_override_font_sizes/font_size = 30
+text = "Press \"E\" To Enter"
+horizontal_alignment = 1
+vertical_alignment = 1
