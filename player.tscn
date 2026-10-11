@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://be6fm1o6tnvem" path="res://Assets/dragon.png" id="7_1jxqw"]
 
 [sub_resource type="Gradient" id="Gradient_21xkr"]
-offsets = PackedFloat32Array(0, 0.47750866)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.47750866, 0.519573, 0.5658363, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sweqy"]
 gradient = SubResource("Gradient_21xkr")
@@ -358,16 +358,16 @@ animations = [{
 radius = 27.0
 height = 54.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1352380324 node_paths=PackedStringArray("_map_marker")]
+[node name="Player" type="CharacterBody2D" unique_id=1352380324]
 collision_layer = 3
 collision_mask = 5
 script = ExtResource("1_hqtel")
-_map_marker = NodePath("MiniMapMarker")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2081800161]
 position = Vector2(-3.5326543, -84.37042)
 scale = Vector2(14.461168, 13.6426115)
 color = Color(6.389535, 4.043846, 1.9913685, 1)
+energy = 0.3
 shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 4.5
