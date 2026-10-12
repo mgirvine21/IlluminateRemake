@@ -9,7 +9,7 @@ func save() -> void:
 	about_to_save.emit()
 	var data := {}
 	for autoload_name in SAVEABLES:
-		data[autoload_name] = get_node("/root" + autoload_name).to_dict()
+		data[autoload_name] = get_node("/root/" + autoload_name).to_dict()
 	var f := FileAccess.open(PATH, FileAccess.WRITE)
 	if f == null:
 		push_error("BRUH: %s" % FileAccess.get_open_error())
@@ -29,11 +29,11 @@ func load_game() -> bool:
 		if parsed.has(autoload_name):
 			get_node("/root/" + autoload_name).from_dict(parsed[autoload_name])
 	return true
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_K:
+			save()
+			print("saved")
+		elif event.keycode == KEY_L:
+			print("loaded: ", load_game())

@@ -57,5 +57,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			#interact_label.hide()
 		get_viewport().set_input_as_handled()
 		SceneManager.go_to(target_scene)
+		Global.in_cave = true
 		#can_interact = true
 	

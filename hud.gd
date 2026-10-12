@@ -10,7 +10,8 @@ extends CanvasLayer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	%TimeLeft.text = "%1.f" % Global.timer.time_left
+	#%TimeLeft.text = "%1.f" % Global.timer.time_left
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,8 +23,12 @@ func _ready() -> void:
 		
 	Global.lives_changed.connect(_on_lives_changed)
 	Inventory.item_changed.connect(_on_item_changed)
-	Global.timer_added.connect(_on_timer_added)
+	#Global.timer_added.connect(_on_timer_added)
 	_refresh_stars()
+	
+	if Global.run_started:
+		%Start.hide()
+		%ColorRect.hide()
 
 func _unhandled_input(event):
 	if event is InputEventKey and %Start.is_visible_in_tree():
@@ -33,11 +38,6 @@ func _unhandled_input(event):
 
 func _on_item_changed(_id: StringName, _count: int) -> void:
 	_refresh_stars()
-	
-	var total := 0
-	for id in Inventory.counts:
-		total += Inventory.counts[id]
-	%CollectedStars.text = "Stars: " + str(total)
 
 func _refresh_stars() -> void:
 	var total := 0
@@ -53,9 +53,9 @@ func set_lives(lives: int):
 	#%Lives.offset_right = %Lives.offset_left + lives * %Lives.texture.get_width()
 	pass
 
-func _on_timer_added():
-	%TimeLeft.visible = true
-	set_process(true)
+#func _on_timer_added():
+	#%TimeLeft.visible = true
+	#set_process(true)
 
 func _on_game_ended(ending: Global.Endings):
 	ending_labels[ending].visible = true

@@ -13,11 +13,3 @@ func _on_light_meter_changed(value: float, max_value: float) -> void:
 	
 	var t := clampf(ratio / full_threshold, 0.0, 1.0)
 	texture_scale = lerpf(min_light, max_light, t)
-	
-func update() -> void:
-	pass
-	#update_light_meter()
-
-
-func _on_timer_timeout() -> void:
-	pass # Replace with function body.

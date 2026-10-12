@@ -6,6 +6,7 @@ func _ready() -> void:
 	print("seed: ", WorldState.world_seed, "  night: ", WorldState.night)
 	print("inventory: ", Inventory.counts)
 	print("fog bytes: ", WorldState.fog_bytes.size())
+	Global.in_cave = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

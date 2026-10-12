@@ -4,7 +4,7 @@ signal lives_changed
 signal game_ended(ending: Endings)
 signal game_started
 signal gravity_changed(gravity: float)
-signal timer_added
+#signal timer_added
 signal light_meter_changed(value: float, max_value: float)
 
 enum Endings { WIN, LOSE}
@@ -19,16 +19,20 @@ enum PhysicsLayers {
 const MAX_LIGHT_METER := 100.0
 const DRAIN_PER_SECOND := 5.0
 
-var timer: Timer
+#var timer: Timer
 var light_meter: float = MAX_LIGHT_METER
 var lives: int = 3:
 	set = _set_lives
+var run_started := false
+var in_cave := false
 
 func _ready():
 	game_ended.connect(_on_game_ended)
 	game_started.connect(_on_game_start)
 
 func _process(delta: float) -> void:
+	if not run_started or not in_cave:
+		return
 	if light_meter > 0.0:
 		_set_light_meter(light_meter - DRAIN_PER_SECOND * delta)
 
@@ -41,17 +45,19 @@ func collect_star(data: ItemData) -> void:
 	_set_light_meter(light_meter + data.light_refill)
 	star_collected.emit()
 
-func setup_timer(time_limit: int):
-	timer = Timer.new()
-	timer.one_shot = true
-	timer.timeout.connect(_on_timer_timeout)
-	add_child(timer)
-	timer.start(time_limit)
-	timer.paused = true
-	timer_added.emit()
-
-func _on_timer_timeout():
-	game_ended.emit(Endings.LOSE)
+#func setup_timer(time_limit: int):
+	#if timer != null:
+		#return
+	#timer = Timer.new()
+	#timer.one_shot = true
+	#timer.timeout.connect(_on_timer_timeout)
+	#add_child(timer)
+	#timer.start(time_limit)
+	#timer.paused = true
+	#timer_added.emit()
+#
+#func _on_timer_timeout():
+	#game_ended.emit(Endings.LOSE)
 
 func _set_lives(value):
 	if value  < 0:
@@ -62,9 +68,12 @@ func _set_lives(value):
 		game_ended.emit(Endings.LOSE)
 
 func _on_game_ended(_endings: Endings):
-	if timer and not timer.is_stopped():
-		timer.paused = true
+	#if timer and not timer.is_stopped():
+		#timer.paused = true
+	pass
 
 func _on_game_start():
-	if timer != null:
-		timer.paused = false
+	run_started = true
+	in_cave = true
+	#if timer != null:
+		#timer.paused = false
