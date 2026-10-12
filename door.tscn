@@ -17,6 +17,7 @@ shape = SubResource("RectangleShape2D_y15wc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592776048]
 light_mask = 4
+texture_filter = 1
 position = Vector2(0, -90)
 scale = Vector2(2.2851563, 1)
 texture = ExtResource("1_ba8gm")

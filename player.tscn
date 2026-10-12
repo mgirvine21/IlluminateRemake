@@ -8,16 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://diggsrm3n6a77" path="res://Assets/Characters/player_nest.png" id="4_sweqy"]
 [ext_resource type="Texture2D" uid="uid://be6fm1o6tnvem" path="res://Assets/dragon.png" id="7_1jxqw"]
 
-[sub_resource type="Gradient" id="Gradient_21xkr"]
-offsets = PackedFloat32Array(0, 0.47750866, 0.519573, 0.5658363, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sweqy"]
-gradient = SubResource("Gradient_21xkr")
-fill = 1
-fill_from = Vector2(0.5, 0.5117647)
-fill_to = Vector2(0, 0)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
 atlas = ExtResource("2_sweqy")
 region = Rect2(0, 0, 92, 92)
@@ -354,6 +344,16 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_21xkr"]
+offsets = PackedFloat32Array(0, 0.47750866, 0.519573, 0.5658363, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sweqy"]
+gradient = SubResource("Gradient_21xkr")
+fill = 1
+fill_from = Vector2(0.5, 0.5117647)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1fgu"]
 radius = 27.0
 height = 54.0
@@ -362,6 +362,14 @@ height = 54.0
 collision_layer = 3
 collision_mask = 5
 script = ExtResource("1_hqtel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1848031570]
+texture_filter = 1
+position = Vector2(-9.532653, -84.370415)
+scale = Vector2(1.8436549, 1.8436549)
+sprite_frames = SubResource("SpriteFrames_y15wc")
+animation = &"jump"
+autoplay = "default"
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2081800161]
 position = Vector2(-3.5326543, -84.37042)
@@ -374,14 +382,6 @@ shadow_filter_smooth = 4.5
 texture = SubResource("GradientTexture2D_sweqy")
 texture_scale = 1.33
 script = ExtResource("2_2hs0m")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1848031570]
-light_mask = 2
-position = Vector2(-9.532653, -84.370415)
-scale = Vector2(1.8436549, 1.8436549)
-sprite_frames = SubResource("SpriteFrames_y15wc")
-animation = &"jump"
-autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=614359349]
 position = Vector2(-2, -53)

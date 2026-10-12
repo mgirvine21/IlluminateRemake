@@ -14,6 +14,7 @@ data = ExtResource("2_c2gop")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=461914432]
 modulate = Color(1.7581433, 1.7581433, 1.7581433, 1)
+texture_filter = 1
 position = Vector2(-3.8146973e-06, -94)
 rotation = 0.7853982
 scale = Vector2(0.41406247, 0.41406247)

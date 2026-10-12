@@ -75,17 +75,18 @@ func stomp():
 	double_jump_armed = false
 	_jump()
 
-func _glide() -> void: 
+func _glide() -> void:
 	if not is_on_floor() and Input.is_action_pressed(Actions.lookup(player, "jump")):
 		if velocity.y > GLIDE_TERMINAL_VELOCITY:
 			velocity.y = GLIDE_TERMINAL_VELOCITY
 
 func _interact() -> void:
-	if !is_sleeping and quota_reached and Input.is_action_just_pressed(Actions.lookup(player,"interact" )):
-		is_sleeping = true
-		print("sleep")
-		_sprite.play("sleep")
-		place_stars()
+	#if !is_sleeping and quota_reached and Input.is_action_just_pressed(Actions.lookup(player,"interact" )):
+		#is_sleeping = true
+		#print("sleep")
+		#_sprite.play("sleep")
+		#place_stars()
+		pass
 
 func place_stars() -> void:
 	pass
@@ -154,7 +155,7 @@ func _physics_process(delta):
 
 	var actual_motion := global_position - old_position
 
-	jump_buffer_timer -= delta 
+	jump_buffer_timer -= delta
 	#_update_map_marker()
 
 func reset():

@@ -3,7 +3,6 @@ extends CanvasLayer
 var _rect := ColorRect.new()
 var _busy := false
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	layer = 100

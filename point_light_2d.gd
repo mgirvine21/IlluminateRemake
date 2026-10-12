@@ -1,7 +1,7 @@
 extends PointLight2D
 
 @export var max_light: float = 2.0
-@export var min_light: float =  0.2
+@export var min_light: float =  0.3
 @export_range(0.0, 1.0) var full_threshold: float = 0.75
 
 func _ready() -> void:

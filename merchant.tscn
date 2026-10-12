@@ -37,7 +37,8 @@ size = Vector2(91.5, 61)
 [node name="Merchant" type="Node2D" unique_id=2017415159]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=193716424]
-modulate = Color(0.89, 0.801, 0, 1)
+modulate = Color(0.89, 0.70918167, 0.41830003, 1)
+texture_filter = 1
 position = Vector2(0, -100.16179)
 scale = Vector2(2.1703959, 2.1703959)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
