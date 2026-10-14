@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b70dne4c4tcml" path="res://door.tscn" id="6_t2lwp"]
 [ext_resource type="PackedScene" uid="uid://c8rhdl7oeoift" path="res://merchant.tscn" id="7_03ioh"]
 [ext_resource type="PackedScene" uid="uid://dn3vauu0flxla" path="res://hud.tscn" id="9_e3f08"]
+[ext_resource type="PackedScene" uid="uid://bnm8ru82bkc4a" path="res://interactable.tscn" id="10_xp1cc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
 polygon = PackedVector2Array(-24.5, -19.5, -16.5, -37.5, 64, -32, 64, 32, 21.5, 64, -32, 64, -40, -14)
@@ -668,3 +669,9 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(45, 30)
 texture = SubResource("PlaceholderTexture2D_cn80q")
+
+[node name="nest" parent="." unique_id=702591978 instance=ExtResource("10_xp1cc")]
+position = Vector2(-471, 29)
+
+[node name="worktable" parent="." unique_id=1903014990 instance=ExtResource("10_xp1cc")]
+position = Vector2(-297, 160)

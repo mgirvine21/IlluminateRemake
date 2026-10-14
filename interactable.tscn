@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bnm8ru82bkc4a"]
+
+[ext_resource type="Script" uid="uid://dgleg2eytoqqe" path="res://interactable.gd" id="1_jcy0q"]
+[ext_resource type="FontFile" uid="uid://2s1er4uy7iye" path="res://Assets/Fonts/Pixelta.ttf" id="2_0k2he"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(39, 39)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g4v7s"]
+
+[node name="Interactable" type="Area2D" unique_id=702591978]
+script = ExtResource("1_jcy0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1229468180]
+position = Vector2(-2.2284362, -49.228436)
+scale = Vector2(2.4568725, 2.4568725)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=546708827]
+offset_left = -51.0
+offset_top = -99.0
+offset_right = -11.0
+offset_bottom = -59.0
+scale = Vector2(2.4568725, 2.4568725)
+texture = SubResource("PlaceholderTexture2D_g4v7s")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=678437095]
+visible = false
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -166.0
+offset_right = 108.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.21568628, 0.15294118, 0.44705883, 1)
+theme_override_fonts/font = ExtResource("2_0k2he")
+theme_override_font_sizes/font_size = 30
+text = "Press \"E\" To Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
