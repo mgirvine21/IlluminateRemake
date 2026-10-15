@@ -80,14 +80,6 @@ func _glide() -> void:
 		if velocity.y > GLIDE_TERMINAL_VELOCITY:
 			velocity.y = GLIDE_TERMINAL_VELOCITY
 
-func _interact() -> void:
-	#if !is_sleeping and quota_reached and Input.is_action_just_pressed(Actions.lookup(player,"interact" )):
-		#is_sleeping = true
-		#print("sleep")
-		#_sprite.play("sleep")
-		#place_stars()
-		pass
-
 func place_stars() -> void:
 	pass
 	#PLACE NIGHTLIGHTS FOR DRAGON
@@ -135,8 +127,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, sign(direction) * speed, abs(direction) * acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
-
-	_interact()
 
 	if is_sleeping:
 		_sprite.play("sleep")

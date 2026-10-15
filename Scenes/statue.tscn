@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ctufmlo3c8cjo"]
+
+[ext_resource type="PackedScene" uid="uid://bnm8ru82bkc4a" path="res://Scenes/interactable.tscn" id="1_ufaa2"]
+[ext_resource type="Script" uid="uid://qytbfmynrffb" path="res://scripts/statue.gd" id="2_1fxej"]
+[ext_resource type="Texture2D" uid="uid://be6fm1o6tnvem" path="res://Assets/dragon.png" id="3_jqltc"]
+
+[node name="Statue" unique_id=702591978 instance=ExtResource("1_ufaa2")]
+script = ExtResource("2_1fxej")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1229468180]
+position = Vector2(-2, -201.00002)
+scale = Vector2(7.634735, 10.249407)
+
+[node name="TextureRect" parent="." index="1" unique_id=546708827]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3" unique_id=185701363]
+position = Vector2(-6, -171)
+texture = ExtResource("3_jqltc")

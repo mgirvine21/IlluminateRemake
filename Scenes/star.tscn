@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gu2832xuxhj2"]
 
-[ext_resource type="Script" uid="uid://8yk6qjxgq2db" path="res://star.gd" id="1_e2x7v"]
+[ext_resource type="Script" uid="uid://8yk6qjxgq2db" path="res://scripts/star.gd" id="1_e2x7v"]
 [ext_resource type="Resource" uid="uid://etxmg0ijutdd" path="res://Assets/ItemResources/star_common.tres" id="2_c2gop"]
 [ext_resource type="Texture2D" uid="uid://dxn5ukf3km412" path="res://Assets/star.png" id="2_e2x7v"]
 

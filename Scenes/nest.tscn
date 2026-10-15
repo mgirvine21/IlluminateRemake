@@ -1,15 +1,16 @@
 [gd_scene format=4 uid="uid://cc1cxdtuin0mp"]
 
-[ext_resource type="Script" uid="uid://bov618msnj21" path="res://nest.gd" id="1_ffudn"]
+[ext_resource type="Script" uid="uid://bov618msnj21" path="res://scripts/nest.gd" id="1_ffudn"]
 [ext_resource type="Texture2D" uid="uid://bpe6h1pfknucf" path="res://Assets/TileSets/tiles rock color.png" id="1_u16m5"]
-[ext_resource type="Texture2D" uid="uid://be6fm1o6tnvem" path="res://Assets/dragon.png" id="2_ffudn"]
 [ext_resource type="TileSet" uid="uid://bmjwi0pdutttt" path="res://Assets/TileSets/illumiateLatest.tres" id="3_3h5ue"]
-[ext_resource type="Script" uid="uid://dq76u6y56cnpl" path="res://Scenes/camera_2d.gd" id="4_2dcr5"]
-[ext_resource type="PackedScene" uid="uid://b3y6uqfcjlngf" path="res://player.tscn" id="5_t2lwp"]
-[ext_resource type="PackedScene" uid="uid://b70dne4c4tcml" path="res://door.tscn" id="6_t2lwp"]
-[ext_resource type="PackedScene" uid="uid://c8rhdl7oeoift" path="res://merchant.tscn" id="7_03ioh"]
-[ext_resource type="PackedScene" uid="uid://dn3vauu0flxla" path="res://hud.tscn" id="9_e3f08"]
-[ext_resource type="PackedScene" uid="uid://bnm8ru82bkc4a" path="res://interactable.tscn" id="10_xp1cc"]
+[ext_resource type="Script" uid="uid://dq76u6y56cnpl" path="res://scripts/camera_2d.gd" id="4_2dcr5"]
+[ext_resource type="PackedScene" uid="uid://b3y6uqfcjlngf" path="res://Scenes/player.tscn" id="5_t2lwp"]
+[ext_resource type="PackedScene" uid="uid://b70dne4c4tcml" path="res://Scenes/interactables/door.tscn" id="6_t2lwp"]
+[ext_resource type="PackedScene" uid="uid://dum0r7xu3h07l" path="res://Scenes/merchant.tscn" id="7_03ioh"]
+[ext_resource type="PackedScene" uid="uid://dn3vauu0flxla" path="res://Scenes/hud.tscn" id="9_e3f08"]
+[ext_resource type="PackedScene" uid="uid://df5kw3xusvafi" path="res://Scenes/sleep_nest.tscn" id="10_fy3wy"]
+[ext_resource type="PackedScene" uid="uid://cdja1hbnu53pf" path="res://Scenes/work_bench.tscn" id="11_0r2dr"]
+[ext_resource type="PackedScene" uid="uid://ctufmlo3c8cjo" path="res://Scenes/statue.tscn" id="11_xn8oc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
 polygon = PackedVector2Array(-24.5, -19.5, -16.5, -37.5, 64, -32, 64, 32, 21.5, 64, -32, 64, -40, -14)
@@ -617,14 +618,6 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAD+/wAAAAABAAEAAAD9/wAAAAABAAEAAAD9////AAABAAEAAAD9//7/AAABAAEAAAD9//3/AAAGAAIAAAD+//3/AAABAAEAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAACAP3/AAABAAEAAAD+//7/AAABAAEAAAAAAP3/AAABAAEAAAABAP3/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAD/////AAABAAEAAAD8////AAABAAEAAAD8/wAAAAAGAAEAAAD9/wEAAAABAAIAAAD8/wEAAAAAAAIAAAD//wEAAAABAAIAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAD+/wEAAAABAAIAAAD8//7/AAABAAEAAAD+////AAABAAEAAAD8//3/AAABAAAAAAD7//7/AAAAAAEAAAD7////AAAAAAEAAAD7/wAAAAAAAAIAAAAAAP//AAABAAEAAAAAAP7/AAABAAEAAAABAP//AAABAAEAAAABAP7/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAACAAEAAAADAP7/AAABAAEAAAADAPz/AAABAAAAAAADAP3/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAFAP7/AAABAAEAAAAFAP3/AAAFAAIAAAAGAP7/AAABAAEAAAAHAP7/AAACAAEAAAAGAP3/AAABAAAAAAAHAP3/AAACAAAAAAAFAPz/AAACAAAAAAAEAPz/AAABAAAAAAD+//z/AAABAAAAAAD7//3/AAAAAAAAAAD9//z/AAAAAAAAAAAFAAAAAAABAAEAAAAEAAAAAAABAAEAAAAGAAAAAAAFAAEAAAAHAAAAAAACAAIAAAAGAAEAAAACAAIAAAAFAAEAAAABAAIAAAAEAAEAAAABAAIAAAADAAEAAAABAAIAAAACAAEAAAABAAIAAAA=")
 tile_set = SubResource("TileSet_03ioh")
 
-[node name="Statue" type="Sprite2D" parent="." unique_id=766512766]
-texture_filter = 1
-position = Vector2(661, -6)
-texture = ExtResource("2_ffudn")
-
-[node name="Merchant" parent="." unique_id=2017415159 instance=ExtResource("7_03ioh")]
-position = Vector2(-169, 159)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1083163356]
 color = Color(0.3224, 0.40143996, 0.52, 1)
 
@@ -642,11 +635,8 @@ position = Vector2(116, 145)
 collision_mask = 7
 floor_snap_length = 2.0
 
-[node name="Door" parent="." unique_id=28166719 instance=ExtResource("6_t2lwp")]
-position = Vector2(340, 157)
-target_scene = "uid://b18rk2fjtho0n"
-
 [node name="HUD" parent="." unique_id=94779443 instance=ExtResource("9_e3f08")]
+visible = false
 
 [node name="MiniMap" type="TextureRect" parent="HUD" unique_id=977483081]
 unique_name_in_owner = true
@@ -670,8 +660,19 @@ visible = false
 position = Vector2(45, 30)
 texture = SubResource("PlaceholderTexture2D_cn80q")
 
-[node name="nest" parent="." unique_id=702591978 instance=ExtResource("10_xp1cc")]
-position = Vector2(-471, 29)
+[node name="Door" parent="." unique_id=299776921 instance=ExtResource("6_t2lwp")]
+position = Vector2(277, 146)
+target_scene = "uid://b18rk2fjtho0n"
 
-[node name="worktable" parent="." unique_id=1903014990 instance=ExtResource("10_xp1cc")]
-position = Vector2(-297, 160)
+[node name="Merchant" parent="." unique_id=702591978 instance=ExtResource("7_03ioh")]
+position = Vector2(-252, 154)
+
+[node name="SleepNest" parent="." unique_id=1680140867 instance=ExtResource("10_fy3wy")]
+position = Vector2(-57, 161)
+target_scene = "uid://cc1cxdtuin0mp"
+
+[node name="WorkBench" parent="." unique_id=144699940 instance=ExtResource("11_0r2dr")]
+position = Vector2(474, 162)
+
+[node name="Statue" parent="." unique_id=1509045791 instance=ExtResource("11_xn8oc")]
+position = Vector2(692, 163)

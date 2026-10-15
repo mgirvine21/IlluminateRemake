@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b70dne4c4tcml"]
+
+[ext_resource type="PackedScene" uid="uid://bnm8ru82bkc4a" path="res://Scenes/interactable.tscn" id="1_0phs7"]
+[ext_resource type="Texture2D" uid="uid://dy2tvomwhbtsl" path="res://Assets/meterfill.png" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://ug668mb1it8n" path="res://scripts/door.gd" id="1_v6xrn"]
+
+[node name="Door" unique_id=702591978 instance=ExtResource("1_0phs7")]
+script = ExtResource("1_v6xrn")
+target_scene = ""
+
+[node name="TextureRect" parent="." index="1" unique_id=546708827]
+offset_left = -152.99998
+offset_top = -270.9999
+offset_right = 103.000015
+offset_bottom = 69.00009
+scale = Vector2(1.1894721, 1.0445288)
+texture = ExtResource("1_ba8gm")

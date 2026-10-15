@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cdja1hbnu53pf"]
+
+[ext_resource type="PackedScene" uid="uid://bnm8ru82bkc4a" path="res://Scenes/interactable.tscn" id="1_esecm"]
+[ext_resource type="Script" uid="uid://mkhx4qht2bw" path="res://scripts/work_bench.gd" id="2_bdxf3"]
+
+[node name="WorkBench" unique_id=702591978 instance=ExtResource("1_esecm")]
+script = ExtResource("2_bdxf3")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cu1mca85adjo3"]
 
-[ext_resource type="Script" uid="uid://c1dlvdg2yyuer" path="res://cave_generator.gd" id="1_iiuik"]
+[ext_resource type="Script" uid="uid://c1dlvdg2yyuer" path="res://scripts/cave_generator.gd" id="1_iiuik"]
 
 [node name="CaveGenerator" type="Node" unique_id=780011225]
 script = ExtResource("1_iiuik")

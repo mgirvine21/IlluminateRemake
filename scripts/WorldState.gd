@@ -5,6 +5,7 @@ var night: int = 0
 var broken_walls: Array[Vector2i] = []
 var fog_bytes: PackedByteArray = PackedByteArray()
 var unlocked_entrances: Array[StringName] = [&"main"]
+var flags: Dictionary = {}
 
 func new_game(seed_text: String = "") -> void:
 	world_seed = seed_text if seed_text != "" else str(randi())
@@ -13,6 +14,7 @@ func new_game(seed_text: String = "") -> void:
 	fog_bytes = PackedByteArray()
 	unlocked_entrances.clear()
 	unlocked_entrances.append(&"main")
+	flags.clear()
 
 func to_dict() -> Dictionary:
 	var walls := []
@@ -24,6 +26,7 @@ func to_dict() -> Dictionary:
 		"broken_walls": walls, 
 		"fog": Marshalls.raw_to_base64(fog_bytes),
 		"entrances": unlocked_entrances.map(func(e): return str(e)),
+		"flags": flags,
 	}
 
 func from_dict(d: Dictionary) -> void:
@@ -36,7 +39,14 @@ func from_dict(d: Dictionary) -> void:
 	unlocked_entrances.clear()
 	for e in d.get("entrances", ["main"]):
 		unlocked_entrances.append(StringName(e))
+	flags = d.get("flags", {})
 
+func has_flag(f: StringName) -> bool:
+	return flags.get(f, false)
+
+func set_flags(f: StringName, value := true) -> void:
+	flags[f] = value
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

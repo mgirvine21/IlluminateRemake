@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://c8rhdl7oeoift"]
+[gd_scene format=3 uid="uid://dum0r7xu3h07l"]
 
+[ext_resource type="PackedScene" uid="uid://bnm8ru82bkc4a" path="res://Scenes/interactable.tscn" id="1_rp4tw"]
 [ext_resource type="Texture2D" uid="uid://cb7201obnn50a" path="res://Assets/Characters/merchant and dragon sprite.png" id="1_vi8yi"]
+[ext_resource type="Script" uid="uid://co7knf7357a7" path="res://Scenes/merchant.gd" id="2_s08t2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pm7pw"]
 atlas = ExtResource("1_vi8yi")
@@ -14,7 +16,7 @@ region = Rect2(92, 0, 92, 92)
 atlas = ExtResource("1_vi8yi")
 region = Rect2(184, 0, 92, 92)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s08t2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -31,24 +33,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(91.5, 61)
+[node name="Merchant" unique_id=702591978 instance=ExtResource("1_rp4tw")]
+script = ExtResource("2_s08t2")
 
-[node name="Merchant" type="Node2D" unique_id=2017415159]
+[node name="CollisionShape2D" parent="." index="0" unique_id=1229468180]
+position = Vector2(-2, -82)
+scale = Vector2(4.9368725, 4.136873)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=193716424]
+[node name="TextureRect" parent="." index="1" unique_id=546708827]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3" unique_id=598733290]
 modulate = Color(0.89, 0.70918167, 0.41830003, 1)
 texture_filter = 1
 position = Vector2(0, -100.16179)
 scale = Vector2(2.1703959, 2.1703959)
-sprite_frames = SubResource("SpriteFrames_g4v7s")
+sprite_frames = SubResource("SpriteFrames_s08t2")
 autoplay = "default"
-
-[node name="Area2D" type="Area2D" parent="." unique_id=697123494]
-position = Vector2(0, -100.16179)
-scale = Vector2(2.1703959, 2.1703959)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=966712692]
-visible = false
-position = Vector2(0.75, 14.5)
-shape = SubResource("RectangleShape2D_yf5fn")
