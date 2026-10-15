@@ -642,6 +642,7 @@ stars_parent = NodePath("../../Stars")
 [node name="Door" parent="." unique_id=28166719 instance=ExtResource("14_jkdf5")]
 position = Vector2(261, 159)
 target_scene = "uid://cc1cxdtuin0mp"
+prompt = "Enter Nest"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=75361510]
 color = Color(0.3224, 0.40143996, 0.52, 1)

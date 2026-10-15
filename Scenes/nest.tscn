@@ -663,6 +663,7 @@ texture = SubResource("PlaceholderTexture2D_cn80q")
 [node name="Door" parent="." unique_id=299776921 instance=ExtResource("6_t2lwp")]
 position = Vector2(277, 146)
 target_scene = "uid://b18rk2fjtho0n"
+prompt = "Enter Cave"
 
 [node name="Merchant" parent="." unique_id=702591978 instance=ExtResource("7_03ioh")]
 position = Vector2(-252, 154)
