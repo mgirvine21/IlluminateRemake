@@ -29,6 +29,14 @@ func _ready() -> void:
 	if Global.run_started:
 		%Start.hide()
 		%ColorRect.hide()
+	
+	Global.fainted.connect(_on_fainted)
+
+func _on_fainted(lost: Dictionary) -> void:
+	var total := 0
+	for id in lost:
+		total += lost[id]
+	print("you fainted and dropped %d stars." % total)
 
 func _unhandled_input(event):
 	if event is InputEventKey and %Start.is_visible_in_tree():

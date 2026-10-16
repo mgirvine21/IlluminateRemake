@@ -6,6 +6,7 @@ signal game_started
 signal gravity_changed(gravity: float)
 #signal timer_added
 signal light_meter_changed(value: float, max_value: float)
+signal fainted(lost: Dictionary)
 
 enum Endings { WIN, LOSE}
 enum Player { ONE }
@@ -25,6 +26,8 @@ var lives: int = 3:
 	set = _set_lives
 var run_started := false
 var in_cave := false
+var fainting := false
+var faint_loss_fration := 0.25
 
 func _ready():
 	game_ended.connect(_on_game_ended)
@@ -39,6 +42,26 @@ func _process(delta: float) -> void:
 func _set_light_meter(value: float) -> void:
 	light_meter = clamp(value, 0.0, MAX_LIGHT_METER)
 	light_meter_changed.emit(light_meter, MAX_LIGHT_METER)
+	if light_meter <= 0.0 and in_cave and not fainting:
+		faint()
+
+func faint() -> void:
+	if fainting:
+		return
+	fainting = true
+	in_cave = false
+	
+	await get_tree().create_timer(1.2).timeout
+	
+	var lost := Inventory.lose_fraction(faint_loss_fration)
+	WorldState.night += 1
+	light_meter = MAX_LIGHT_METER
+	light_meter_changed.emit(light_meter, MAX_LIGHT_METER)
+	fainted.emit(lost)
+	
+	SaveGame.save()
+	await SceneManager.go_to(get_tree().current_scene.scene_file_path)
+	fainting = false
 
 func collect_star(data: ItemData) -> void:
 	Inventory.add(data.id, 1)

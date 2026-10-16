@@ -21,6 +21,16 @@ func spend(id: StringName, amount: int) -> bool:
 	item_changed.emit(id, counts[id])
 	return true
 
+func lose_fraction(fraction: float) -> Dictionary:
+	var lost := {}
+	for id in counts.keys():
+		var amount := floori(counts[id] * fraction)
+		if amount > 0:
+			counts[id] -= amount
+			lost[id] = amount
+			item_changed.emit(id, counts[id])
+	return lost
+
 func to_dict() -> Dictionary:
 	var out := {}
 	for id in counts: 

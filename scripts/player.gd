@@ -54,6 +54,11 @@ func _ready():
 	_set_speed(speed)
 	_set_sprite_frames(sprite_frames)
 	#_add_player_to_map()
+	
+	Global.light_meter_changed.connect(func(v, _m):
+		if v <= 0.0:
+			velocity = Vector2.ZERO
+			_sprite.play("sleep"))
 
 func _on_gravity_changed(new_gravity):
 	gravity = new_gravity
@@ -102,7 +107,7 @@ func place_stars() -> void:
 	#_map_marker.position = Vector2(cell.x + 45, cell.y + 30)
 
 func _physics_process(delta):
-	if Global.lives <= 0:
+	if Global.lives <= 0 or Global.fainting:
 		return
 	if is_on_floor():
 		coyote_timer = coyote_time
