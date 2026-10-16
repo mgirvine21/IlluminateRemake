@@ -74,6 +74,5 @@ func _on_game_ended(_endings: Endings):
 
 func _on_game_start():
 	run_started = true
-	in_cave = true
 	#if timer != null:
 		#timer.paused = false

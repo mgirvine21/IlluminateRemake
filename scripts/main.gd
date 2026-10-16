@@ -34,6 +34,7 @@ func _generate_minimap() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.in_cave = true
 	_marker.texture = preload("res://Assets/dragon.png")
 	_marker.scale = Vector2(0.05, 0.05)
 	%MiniMap.add_child(_marker)
