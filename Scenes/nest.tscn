@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://df5kw3xusvafi" path="res://Scenes/sleep_nest.tscn" id="10_fy3wy"]
 [ext_resource type="PackedScene" uid="uid://cdja1hbnu53pf" path="res://Scenes/work_bench.tscn" id="11_0r2dr"]
 [ext_resource type="PackedScene" uid="uid://ctufmlo3c8cjo" path="res://Scenes/statue.tscn" id="11_xn8oc"]
+[ext_resource type="PackedScene" uid="uid://dj802h0b4greh" path="res://Scenes/work_bench_menu.tscn" id="12_xn8oc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_21xkr"]
 polygon = PackedVector2Array(-24.5, -19.5, -16.5, -37.5, 64, -32, 64, 32, 21.5, 64, -32, 64, -40, -14)
@@ -630,8 +631,9 @@ position = Vector2(-252, 154)
 position = Vector2(-57, 161)
 target_scene = "uid://cc1cxdtuin0mp"
 
-[node name="WorkBench" parent="." unique_id=144699940 instance=ExtResource("11_0r2dr")]
+[node name="WorkBench" parent="." unique_id=144699940 node_paths=PackedStringArray("menu") instance=ExtResource("11_0r2dr")]
 position = Vector2(474, 162)
+menu = NodePath("../WorkBench_Menu")
 
 [node name="Statue" parent="." unique_id=1509045791 instance=ExtResource("11_xn8oc")]
 position = Vector2(692, 163)
@@ -676,3 +678,5 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(45, 30)
 texture = SubResource("PlaceholderTexture2D_cn80q")
+
+[node name="WorkBench_Menu" parent="." unique_id=2091291371 instance=ExtResource("12_xn8oc")]

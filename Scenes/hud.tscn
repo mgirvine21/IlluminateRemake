@@ -14,10 +14,11 @@ script = ExtResource("1_64ctp")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=668583294]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 800)
-offset_left = -484.0
-offset_top = -503.0
-offset_right = 2450.0
-offset_bottom = 1420.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.2, 0.2, 0.2, 0.7607843)
 
 [node name="Start" type="VBoxContainer" parent="." unique_id=1218983774]
@@ -93,10 +94,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -11.5
-offset_right = 32.0
-offset_bottom = 11.5
+offset_left = -59.5
+offset_top = -21.5
+offset_right = 59.5
+offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.7464997, 0.83647317, 0.98259515, 1)

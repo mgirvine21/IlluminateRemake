@@ -44,6 +44,8 @@ func spend_currency(amount: int) -> bool:
 
 #region crafting
 func can_craft(recipe: RecipeData) -> bool:
+	if recipe.inputs.is_empty():
+		return false
 	for id in recipe.inputs:
 		if not can_afford(id, recipe.inputs[id]):
 			return false
@@ -51,6 +53,7 @@ func can_craft(recipe: RecipeData) -> bool:
 
 func craft(recipe: RecipeData) -> bool:
 	if not can_craft(recipe):
+		print("bruh")
 		return false
 	for id in recipe.inputs:
 		spend(id, recipe.inputs[id])
@@ -100,17 +103,16 @@ func _destringify(src: Dictionary) -> Dictionary:
 
 func from_dict(d: Dictionary) -> void:
 	var old_ids := counts.keys()
-	counts.clear()
-	var saved: Dictionary = d.get("counts", {})
-	for k in saved:
-		var id := StringName(k)
-		counts[id] = int(saved[k])
-		item_changed.emit(id, counts[id])
+	counts = _destringify(d.get("counts", {}))
+	made = _destringify(d.get("made", {}))
+	sold_counts = _destringify(d.get("sold", {}))
+	currency = int(d.get("currency", 0))
 	for id in old_ids:
 		if not counts.has(id):
 			item_changed.emit(id, 0)
 	for id in counts:
 		item_changed.emit(id, counts[id])
+	currency_changed.emit(currency)
 #endregion
 
 func lose_fraction(fraction: float) -> Dictionary:

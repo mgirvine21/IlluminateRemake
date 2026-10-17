@@ -9,3 +9,6 @@ id = &"common_star_lamp"
 display_name = "Common Star Lamp"
 description = "The shirmplest of star lamps. "
 icon = ExtResource("1_y4i0c")
+inputs = {
+"star_common": 2
+}
