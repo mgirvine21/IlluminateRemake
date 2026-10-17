@@ -618,6 +618,24 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAD+/wAAAAABAAEAAAD9/wAAAAABAAEAAAD9////AAABAAEAAAD9//7/AAABAAEAAAD9//3/AAAGAAIAAAD+//3/AAABAAEAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAACAP3/AAABAAEAAAD+//7/AAABAAEAAAAAAP3/AAABAAEAAAABAP3/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAD/////AAABAAEAAAD8////AAABAAEAAAD8/wAAAAAGAAEAAAD9/wEAAAABAAIAAAD8/wEAAAAAAAIAAAD//wEAAAABAAIAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAD+/wEAAAABAAIAAAD8//7/AAABAAEAAAD+////AAABAAEAAAD8//3/AAABAAAAAAD7//7/AAAAAAEAAAD7////AAAAAAEAAAD7/wAAAAAAAAIAAAAAAP//AAABAAEAAAAAAP7/AAABAAEAAAABAP//AAABAAEAAAABAP7/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAACAAEAAAADAP7/AAABAAEAAAADAPz/AAABAAAAAAADAP3/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAFAP7/AAABAAEAAAAFAP3/AAAFAAIAAAAGAP7/AAABAAEAAAAHAP7/AAACAAEAAAAGAP3/AAABAAAAAAAHAP3/AAACAAAAAAAFAPz/AAACAAAAAAAEAPz/AAABAAAAAAD+//z/AAABAAAAAAD7//3/AAAAAAAAAAD9//z/AAAAAAAAAAAFAAAAAAABAAEAAAAEAAAAAAABAAEAAAAGAAAAAAAFAAEAAAAHAAAAAAACAAIAAAAGAAEAAAACAAIAAAAFAAEAAAABAAIAAAAEAAEAAAABAAIAAAADAAEAAAABAAIAAAACAAEAAAABAAIAAAA=")
 tile_set = SubResource("TileSet_03ioh")
 
+[node name="Door" parent="." unique_id=299776921 instance=ExtResource("6_t2lwp")]
+position = Vector2(277, 146)
+target_scene = "uid://b18rk2fjtho0n"
+prompt = "Enter Cave"
+
+[node name="Merchant" parent="." unique_id=702591978 instance=ExtResource("7_03ioh")]
+position = Vector2(-252, 154)
+
+[node name="SleepNest" parent="." unique_id=1680140867 instance=ExtResource("10_fy3wy")]
+position = Vector2(-57, 161)
+target_scene = "uid://cc1cxdtuin0mp"
+
+[node name="WorkBench" parent="." unique_id=144699940 instance=ExtResource("11_0r2dr")]
+position = Vector2(474, 162)
+
+[node name="Statue" parent="." unique_id=1509045791 instance=ExtResource("11_xn8oc")]
+position = Vector2(692, 163)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1083163356]
 color = Color(0.3224, 0.40143996, 0.52, 1)
 
@@ -658,21 +676,3 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(45, 30)
 texture = SubResource("PlaceholderTexture2D_cn80q")
-
-[node name="Door" parent="." unique_id=299776921 instance=ExtResource("6_t2lwp")]
-position = Vector2(277, 146)
-target_scene = "uid://b18rk2fjtho0n"
-prompt = "Enter Cave"
-
-[node name="Merchant" parent="." unique_id=702591978 instance=ExtResource("7_03ioh")]
-position = Vector2(-252, 154)
-
-[node name="SleepNest" parent="." unique_id=1680140867 instance=ExtResource("10_fy3wy")]
-position = Vector2(-57, 161)
-target_scene = "uid://cc1cxdtuin0mp"
-
-[node name="WorkBench" parent="." unique_id=144699940 instance=ExtResource("11_0r2dr")]
-position = Vector2(474, 162)
-
-[node name="Statue" parent="." unique_id=1509045791 instance=ExtResource("11_xn8oc")]
-position = Vector2(692, 163)

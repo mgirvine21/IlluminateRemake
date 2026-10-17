@@ -2,11 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bnm8ru82bkc4a" path="res://Scenes/interactable.tscn" id="1_85cxn"]
 [ext_resource type="Script" uid="uid://d14hut12w4oip" path="res://nest.gd" id="2_y8hff"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s08t2"]
+[ext_resource type="Texture2D" uid="uid://enw1euvy14ag" path="res://Assets/nest.png" id="3_y8hff"]
 
 [node name="SleepNest" unique_id=702591978 instance=ExtResource("1_85cxn")]
 script = ExtResource("2_y8hff")
+target_scene = ""
 
 [node name="TextureRect" parent="." index="1" unique_id=546708827]
-texture = SubResource("PlaceholderTexture2D_s08t2")
+offset_left = -132.0
+offset_top = -223.0
+offset_right = -4.0
+offset_bottom = -95.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_y8hff")

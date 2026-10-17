@@ -8,12 +8,10 @@ extends CanvasLayer
 	%LoseEnding,
 }
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#%TimeLeft.text = "%1.f" % Global.timer.time_left
 	pass
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_process(false)
 	set_physics_process(false)
@@ -49,7 +47,10 @@ func _on_item_changed(_id: StringName, _count: int) -> void:
 
 func _refresh_stars() -> void:
 	var total := 0
+	#NEEDS TO BE UPDATED TO ONLY COUNT STARS AND NOT ALL IN COUNTS, WHICH INCLUDES LAMPS
 	for id in Inventory.counts:
+		if Recipes.get_recipe(id) != null:
+			continue
 		total += Inventory.counts[id]
 	%CollectedStars.text = "Stars: " + str(total)
 

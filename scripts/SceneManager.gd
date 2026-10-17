@@ -3,7 +3,6 @@ extends CanvasLayer
 var _rect := ColorRect.new()
 var _busy := false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	layer = 100
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -36,7 +35,5 @@ func go_to(path: String, duration: float = 0.4) -> void:
 	_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_busy = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

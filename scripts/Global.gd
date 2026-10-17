@@ -60,7 +60,7 @@ func faint() -> void:
 	fainted.emit(lost)
 	
 	SaveGame.save()
-	await SceneManager.go_to(get_tree().current_scene.scene_file_path)
+	await SceneManager.go_to("res://Scenes/nest.tscn")
 	fainting = false
 
 func collect_star(data: ItemData) -> void:

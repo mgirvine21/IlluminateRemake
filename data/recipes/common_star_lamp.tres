@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://cba41nwcrpp7d"]
+
+[ext_resource type="Texture2D" uid="uid://blm4yrgkot33k" path="res://Assets/lampt.png" id="1_y4i0c"]
+[ext_resource type="Script" uid="uid://byomg3xho1f0m" path="res://recipe_data.gd" id="1_ywbkm"]
+
+[resource]
+script = ExtResource("1_ywbkm")
+id = &"common_star_lamp"
+display_name = "Common Star Lamp"
+description = "The shirmplest of star lamps. "
+icon = ExtResource("1_y4i0c")

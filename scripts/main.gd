@@ -20,8 +20,6 @@ func _generate_minimap() -> void:
 			map.set_pixelv(p, Color.BLACK)
 	%MiniMap.texture = ImageTexture.create_from_image(map)
 	
-	#_fog_image = Image.create(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8)
-	#_fog_image.fill(Color(0.05, 0.05, 0.08, 1.0))
 	var expected := MAP_SIZE.x * MAP_SIZE.y * 4
 	if WorldState.fog_bytes.size() == expected:
 		_fog_image = Image.create_from_data(MAP_SIZE.x, MAP_SIZE.y, false, Image.FORMAT_RGBA8, WorldState.fog_bytes)
@@ -32,7 +30,6 @@ func _generate_minimap() -> void:
 	%Fog.texture = _fog_texture
 	_last_cell = Vector2i(-9999, -9999)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.in_cave = true
 	_marker.texture = preload("res://Assets/dragon.png")
@@ -51,7 +48,7 @@ func _exit_tree() -> void:
 
 func reveal_around(cell: Vector2i) -> void:
 	if cell == _last_cell:
-		return  # only touch the texture when the player changes cells
+		return
 	_last_cell = cell
 
 	var center := cell + OFFSET
@@ -63,10 +60,9 @@ func reveal_around(cell: Vector2i) -> void:
 			var p := center + Vector2i(dx, dy)
 			if p.x < 0 or p.x >= MAP_SIZE.x or p.y < 0 or p.y >= MAP_SIZE.y:
 				continue
-			_fog_image.set_pixelv(p, Color(0, 0, 0, 0))  # fully transparent = revealed
+			_fog_image.set_pixelv(p, Color(0, 0, 0, 0))
 	_fog_texture.update(_fog_image)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
@@ -80,4 +76,4 @@ func _physics_process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_N:
-		SceneManager.go_to("res://nest.tscn")  # your real path
+		SceneManager.go_to("res://Scenes/nest.tscn")
