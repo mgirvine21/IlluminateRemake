@@ -25,7 +25,7 @@ func _on_open() -> void:
 func _rebuild_list() -> void:
 	for c in recipe_list.get_children():
 		c.queue_free()
-	for r in Recipes.avaliable():
+	for r in Recipes.available():
 		var b := Button.new()
 		b.text = r.display_name
 		b.icon = r.icon
@@ -39,13 +39,14 @@ func _select(recipe: RecipeData) -> void:
 
 func _refresh_detail() -> void:
 	currency_label.text = "Coins: %d" % Inventory.currency
-	for c in inputs_box.get_childred():
+	for c in inputs_box.get_children():
 		c.queue_free()
 	if _selected == null:
 		name_label.text = "Nothing to craft yet"
 		desc_label.text = ""
 		craft_button.disabled = true
 		sell_button.disabled = true
+		sell_button.visible = WorldState.has_flag(&"merchant_got_lamp")
 		return
 	
 	name_label.text = _selected.display_name
@@ -54,7 +55,8 @@ func _refresh_detail() -> void:
 		var need: int = _selected.inputs[id]
 		var have := Inventory.get_count(id)
 		var row := Label.new()
-		row.text = "&s %d / %d" % [String(id).capitalize(), have, need]
+		row.add_theme_font_size_override("font_size", 25)
+		row.text = "%s %d / %d" % [String(id).capitalize(), have, need]
 		if have < need:
 			row.modulate = Color(1, 0.4, 0.4)
 		inputs_box.add_child(row)

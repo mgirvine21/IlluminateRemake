@@ -626,6 +626,8 @@ prompt = "Enter Cave"
 
 [node name="Merchant" parent="." unique_id=702591978 instance=ExtResource("7_03ioh")]
 position = Vector2(-252, 154)
+prompt = "Interact"
+enabled = true
 
 [node name="SleepNest" parent="." unique_id=1680140867 instance=ExtResource("10_fy3wy")]
 position = Vector2(-57, 161)

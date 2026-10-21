@@ -17,7 +17,7 @@ func _ready() -> void:
 func get_recipe(id: StringName) -> RecipeData:
 	return _by_id.get(id)
 
-func avaliable() -> Array[RecipeData]:
+func available() -> Array[RecipeData]:
 	var out: Array[RecipeData] = []
 	for r in all: 
 		if r.requires_flag == &"" or WorldState.has_flag(r.requires_flag):

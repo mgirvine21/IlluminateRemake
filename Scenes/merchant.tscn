@@ -35,6 +35,8 @@ animations = [{
 
 [node name="Merchant" unique_id=702591978 instance=ExtResource("1_rp4tw")]
 script = ExtResource("2_s08t2")
+prompt = null
+enabled = null
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1229468180]
 position = Vector2(-2, -82)

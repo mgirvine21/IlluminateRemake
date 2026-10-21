@@ -44,7 +44,7 @@ func from_dict(d: Dictionary) -> void:
 func has_flag(f: StringName) -> bool:
 	return flags.get(f, false)
 
-func set_flags(f: StringName, value := true) -> void:
+func set_flag(f: StringName, value := true) -> void:
 	flags[f] = value
 
 func _ready() -> void:

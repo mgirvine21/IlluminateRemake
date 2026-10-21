@@ -29,9 +29,26 @@ grow_vertical = 2
 color = Color(0.79, 0.61699003, 0.21329999, 0.43529412)
 
 [node name="Panel" type="Panel" parent="Control/ColorRect" unique_id=937147523]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CurrencyLabel" type="Label" parent="Control/ColorRect/Panel" unique_id=620481867]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_bottom = 35.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "COINS"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/Panel" unique_id=1420330477]
 layout_mode = 1
@@ -44,41 +61,45 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/ColorRect/Panel/HBoxContainer" unique_id=113281596]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="RecipeList" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer/ScrollContainer" unique_id=695681653]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer" unique_id=1244380125]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="NameLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1657098350]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "NAME"
 
 [node name="DescLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=24765038]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "DESC"
 
 [node name="InputBox" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1151575491]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 6
 
 [node name="CraftButton" type="Button" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1579681245]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "CRAFT"
 
 [node name="SellButton" type="Button" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1883984870]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "SELL"
-
-[node name="CurrencyLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=620481867]
-unique_name_in_owner = true
-layout_mode = 2
