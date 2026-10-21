@@ -29,18 +29,17 @@ grow_vertical = 2
 color = Color(0.79, 0.61699003, 0.21329999, 0.43529412)
 
 [node name="Panel" type="Panel" parent="Control/ColorRect" unique_id=937147523]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/Panel" unique_id=1420330477]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 38.0
+offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -55,7 +54,7 @@ size_flags_horizontal = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer" unique_id=1244380125]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="NameLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1657098350]
 unique_name_in_owner = true
