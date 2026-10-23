@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dj802h0b4greh"]
 
 [ext_resource type="Script" uid="uid://101tjtwqvqjo" path="res://Scenes/work_bench_menu.gd" id="1_3k8tu"]
+[ext_resource type="FontFile" uid="uid://csdrjw1s586cc" path="res://Assets/Fonts/RUBBBB__.TTF" id="2_42cgk"]
 
 [node name="WorkBench_Menu" type="CanvasLayer" unique_id=2091291371]
 script = ExtResource("1_3k8tu")
@@ -39,16 +40,16 @@ grow_vertical = 2
 [node name="CurrencyLabel" type="Label" parent="Control/ColorRect/Panel" unique_id=620481867]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -76.0
-offset_bottom = 35.0
-grow_horizontal = 0
+offset_bottom = 26.0
+grow_horizontal = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_42cgk")
 theme_override_font_sizes/font_size = 25
-text = "COINS"
+text = "COINS: "
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/Panel" unique_id=1420330477]
 layout_mode = 1
@@ -78,14 +79,18 @@ size_flags_vertical = 4
 [node name="NameLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1657098350]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_42cgk")
 theme_override_font_sizes/font_size = 25
 text = "NAME"
+horizontal_alignment = 1
 
 [node name="DescLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=24765038]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_42cgk")
 theme_override_font_sizes/font_size = 25
 text = "DESC"
+horizontal_alignment = 1
 
 [node name="InputBox" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1151575491]
 unique_name_in_owner = true
@@ -95,11 +100,15 @@ size_flags_horizontal = 6
 [node name="CraftButton" type="Button" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1579681245]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("2_42cgk")
+theme_override_font_sizes/font_size = 23
 text = "CRAFT"
+autowrap_trim_flags = 192
 
 [node name="SellButton" type="Button" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1883984870]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_42cgk")
 theme_override_font_sizes/font_size = 25
 text = "SELL"
+autowrap_trim_flags = 192
