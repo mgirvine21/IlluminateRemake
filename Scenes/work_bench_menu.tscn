@@ -2,34 +2,35 @@
 
 [ext_resource type="Script" uid="uid://101tjtwqvqjo" path="res://Scenes/work_bench_menu.gd" id="1_3k8tu"]
 [ext_resource type="FontFile" uid="uid://csdrjw1s586cc" path="res://Assets/Fonts/RUBBBB__.TTF" id="2_42cgk"]
+[ext_resource type="Texture2D" uid="uid://utxe766xbcl1" path="res://Assets/menu.png" id="2_nt2fj"]
 
 [node name="WorkBench_Menu" type="CanvasLayer" unique_id=2091291371]
 script = ExtResource("1_3k8tu")
 
 [node name="Control" type="Control" parent="." unique_id=1169622252]
+custom_minimum_size = Vector2(800, 800)
 layout_mode = 3
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -497.875
-offset_top = -370.25
+offset_top = 70.0
 offset_right = 497.875
-offset_bottom = 370.25
+offset_bottom = 870.0
 grow_horizontal = 2
-grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=656025522]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1643562682]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.79, 0.61699003, 0.21329999, 0.43529412)
+texture = ExtResource("2_nt2fj")
+region_rect = Rect2(14, 13.743334, 227.7532, 227.81956)
 
-[node name="Panel" type="Panel" parent="Control/ColorRect" unique_id=937147523]
+[node name="Panel" type="Panel" parent="Control/NinePatchRect" unique_id=937147523]
+modulate = Color(1.0213015, 0.8626089, 2.222829, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CurrencyLabel" type="Label" parent="Control/ColorRect/Panel" unique_id=620481867]
+[node name="CurrencyLabel" type="Label" parent="Control/NinePatchRect/Panel" unique_id=620481867]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
@@ -51,7 +52,7 @@ theme_override_font_sizes/font_size = 25
 text = "COINS: "
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/Panel" unique_id=1420330477]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect/Panel" unique_id=1420330477]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,22 +62,22 @@ offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/ColorRect/Panel/HBoxContainer" unique_id=113281596]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/NinePatchRect/Panel/HBoxContainer" unique_id=113281596]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="RecipeList" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer/ScrollContainer" unique_id=695681653]
+[node name="RecipeList" type="VBoxContainer" parent="Control/NinePatchRect/Panel/HBoxContainer/ScrollContainer" unique_id=695681653]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer" unique_id=1244380125]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/NinePatchRect/Panel/HBoxContainer" unique_id=1244380125]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="NameLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1657098350]
+[node name="NameLabel" type="Label" parent="Control/NinePatchRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1657098350]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_42cgk")
@@ -84,7 +85,7 @@ theme_override_font_sizes/font_size = 25
 text = "NAME"
 horizontal_alignment = 1
 
-[node name="DescLabel" type="Label" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=24765038]
+[node name="DescLabel" type="Label" parent="Control/NinePatchRect/Panel/HBoxContainer/VBoxContainer2" unique_id=24765038]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_42cgk")
@@ -92,12 +93,12 @@ theme_override_font_sizes/font_size = 25
 text = "DESC"
 horizontal_alignment = 1
 
-[node name="InputBox" type="VBoxContainer" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1151575491]
+[node name="InputBox" type="VBoxContainer" parent="Control/NinePatchRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1151575491]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CraftButton" type="Button" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1579681245]
+[node name="CraftButton" type="Button" parent="Control/NinePatchRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1579681245]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_42cgk")
@@ -105,10 +106,20 @@ theme_override_font_sizes/font_size = 23
 text = "CRAFT"
 autowrap_trim_flags = 192
 
-[node name="SellButton" type="Button" parent="Control/ColorRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1883984870]
+[node name="SellButton" type="Button" parent="Control/NinePatchRect/Panel/HBoxContainer/VBoxContainer2" unique_id=1883984870]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_42cgk")
 theme_override_font_sizes/font_size = 25
 text = "SELL"
 autowrap_trim_flags = 192
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=656025522]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.79, 0.61699003, 0.21329999, 0.43529412)
